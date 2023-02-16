@@ -1,0 +1,14 @@
+*.class
+*.log
+
+hs_err_pid*
+*.idea
+*.iml
+
+etc/
+bin/
+build/
+.gradle/
+
+gradle/
+gradlew*
