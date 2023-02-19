@@ -15,6 +15,8 @@ import static j8spec.J8Spec.*;
 @RunWith(J8SpecRunner.class)
 public class UvcTest {
   static {
+    System.setProperty("org.bytedeco.javacpp.logger.debug", "true");
+
     it("Captures USB camera frames", () -> {
       UVCDevice dev = new Uvc.UVCDevice();
       UVCDeviceHandle devh = new Uvc.UVCDeviceHandle();
