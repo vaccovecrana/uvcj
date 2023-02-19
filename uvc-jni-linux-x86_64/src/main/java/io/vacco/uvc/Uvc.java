@@ -28,8 +28,13 @@ import org.bytedeco.javacpp.tools.InfoMapper;
  *
  * @author CyberCastle
  */
-@Properties({ @Platform(include = { "libuvc/libuvc.h" }, link = "uvc") })
-public class UVCController implements InfoMapper {
+@Properties({
+  @Platform(
+    include = { "libuvc/libuvc.h" },
+    link = "uvc"
+  )
+})
+public class Uvc implements InfoMapper {
 
   public static interface UVCError {
 

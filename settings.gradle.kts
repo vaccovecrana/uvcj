@@ -5,6 +5,4 @@ pluginManagement {
   }
 }
 
-include("uvc-jni", "uvc")
-
-project(":uvc-jni").name = "uvc-${System.getProperty("os.name").toLowerCase()}-${System.getProperty("os.arch")}"
+include("uvc-jni-linux-x86_64", "uvc")
