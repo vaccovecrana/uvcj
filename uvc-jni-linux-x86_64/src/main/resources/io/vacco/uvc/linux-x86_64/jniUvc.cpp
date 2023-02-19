@@ -112,17 +112,17 @@ static const char* JavaCPP_classNames[19] = {
         "java/nio/Buffer",
         "java/lang/Object",
         "java/nio/charset/Charset",
-        "io/vacco/uvc/Uvc$UVCFrame",
-        "io/vacco/uvc/Uvc$UVCFrameCallback",
-        "io/vacco/uvc/Uvc$UVCFormatDesc",
+        "io/vacco/uvc/Uvc$UVCStreamCtrl",
         "java/lang/RuntimeException",
         "java/lang/NullPointerException",
+        "io/vacco/uvc/Uvc$UVCFrame",
+        "io/vacco/uvc/Uvc$UVCFrameCallback",
+        "io/vacco/uvc/Uvc$UVCStreamingInterface",
+        "io/vacco/uvc/Uvc$UVCFormatDesc",
         "org/bytedeco/javacpp/BytePointer",
         "io/vacco/uvc/Uvc$UVCFrameDesc",
-        "io/vacco/uvc/Uvc$UVCStreamingInterface",
-        "io/vacco/uvc/Uvc$TimeVal",
         "io/vacco/uvc/Uvc$UVCDeviceHandle",
-        "io/vacco/uvc/Uvc$UVCStreamCtrl",
+        "io/vacco/uvc/Uvc$TimeVal",
         "io/vacco/uvc/Uvc$UVCDeviceDescriptor" };
 static jclass JavaCPP_classes[19] = { NULL };
 static jfieldID JavaCPP_addressFID = NULL;
@@ -495,21 +495,21 @@ jmethodID JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback::mid = NULL;
 
 static JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[10];
 
+static void JavaCPP_io_vacco_uvc_Uvc_00024UVCStreamCtrl_deallocate(void *p) { delete (::uvc_stream_ctrl_t*)p; }
 static void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_deallocate(void *p) { 
     int n = sizeof(JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances) / sizeof(JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[0]);
     for (int i = 0; i < n; i++) { if (JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[i].obj == ((JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback*)p)->obj) JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[i].obj = NULL; }
     JNIEnv *e; bool a = JavaCPP_getEnv(&e); if (e != NULL) e->DeleteWeakGlobalRef((jweak)((JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback*)p)->obj); delete (JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback*)p; JavaCPP_detach(a); }
 static void JavaCPP_io_vacco_uvc_Uvc_00024UVCFormatDesc_deallocate(void *p) { delete (::uvc_format_desc*)p; }
 static void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameDesc_deallocate(void *p) { delete (::uvc_frame_desc*)p; }
-static void JavaCPP_io_vacco_uvc_Uvc_00024TimeVal_deallocate(void *p) { delete (::timeval*)p; }
 static void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrame_deallocate(void *p) { delete (::uvc_frame*)p; }
-static void JavaCPP_io_vacco_uvc_Uvc_00024UVCStreamCtrl_deallocate(void *p) { delete (::uvc_stream_ctrl_t*)p; }
+static void JavaCPP_io_vacco_uvc_Uvc_00024TimeVal_deallocate(void *p) { delete (::timeval*)p; }
 static void JavaCPP_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_deallocate(void *p) { delete (::uvc_device_descriptor*)p; }
+static void JavaCPP_io_vacco_uvc_Uvc_00024UVCStreamCtrl_deallocateArray(void* p) { delete[] (::uvc_stream_ctrl_t*)p; }
 static void JavaCPP_io_vacco_uvc_Uvc_00024UVCFormatDesc_deallocateArray(void* p) { delete[] (::uvc_format_desc*)p; }
 static void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameDesc_deallocateArray(void* p) { delete[] (::uvc_frame_desc*)p; }
 static void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrame_deallocateArray(void* p) { delete[] (::uvc_frame*)p; }
 static void JavaCPP_io_vacco_uvc_Uvc_00024TimeVal_deallocateArray(void* p) { delete[] (::timeval*)p; }
-static void JavaCPP_io_vacco_uvc_Uvc_00024UVCStreamCtrl_deallocateArray(void* p) { delete[] (::uvc_stream_ctrl_t*)p; }
 static void JavaCPP_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_deallocateArray(void* p) { delete[] (::uvc_device_descriptor*)p; }
 
 static const char* JavaCPP_members[19][20] = {
@@ -520,18 +520,18 @@ static const char* JavaCPP_members[19][20] = {
         { NULL },
         { NULL },
         { NULL },
-        { "sizeof", "sequence", "step", "data_bytes", "width", "height", "frame_format", "capture_time", "library_owns_data", "data", "source" },
-        { NULL },
-        { "sizeof", "bDescriptorSubtype", "bFormatIndex", "bNumFrameDescriptors", "guidFormat", "fourccFormat", "bBitsPerPixel", "bmFlags", "bDefaultFrameIndex", "bAspectRatioX", "bAspectRatioY", "bmInterlaceFlags", "bCopyProtect", "bVariableSize", "frame_descs", "parent", "next", "prev" },
+        { "sizeof", "wKeyFrameRate", "wPFrameRate", "wCompQuality", "wCompWindowSize", "wDelay", "dwMaxVideoFrameSize", "dwMaxPayloadTransferSize", "dwClockFrequency", "bmFramingInfo", "bPreferredVersion", "bMinVersion", "bMaxVersion", "bInterfaceNumber", "bmHint", "bFormatIndex", "bFrameIndex", "dwFrameInterval" },
         { NULL },
         { NULL },
+        { "sizeof", "data", "source", "step", "sequence", "width", "data_bytes", "height", "frame_format", "capture_time", "library_owns_data" },
         { NULL },
-        { "sizeof", "bDescriptorSubtype", "bFrameIndex", "bmCapabilities", "wWidth", "wHeight", "dwMinBitRate", "dwMaxBitRate", "dwMaxVideoFrameBufferSize", "dwDefaultFrameInterval", "dwMinFrameInterval", "dwMaxFrameInterval", "dwFrameIntervalStep", "bFrameIntervalType", "dwBytesPerLine", "intervals", "parent", "next", "prev" },
+        { NULL },
+        { "sizeof", "parent", "next", "prev", "fourccFormat", "bBitsPerPixel", "bmFlags", "bDefaultFrameIndex", "bAspectRatioX", "bAspectRatioY", "bmInterlaceFlags", "bCopyProtect", "bVariableSize", "frame_descs", "bDescriptorSubtype", "bNumFrameDescriptors", "guidFormat", "bFormatIndex" },
+        { NULL },
+        { "sizeof", "parent", "next", "prev", "bmCapabilities", "wWidth", "wHeight", "dwMinBitRate", "dwMaxBitRate", "dwMaxVideoFrameBufferSize", "dwDefaultFrameInterval", "dwMinFrameInterval", "dwMaxFrameInterval", "dwFrameIntervalStep", "bFrameIntervalType", "dwBytesPerLine", "intervals", "bDescriptorSubtype", "bFrameIndex" },
         { NULL },
         { "sizeof", "tv_sec", "tv_usec" },
-        { NULL },
-        { "sizeof", "bFrameIndex", "bmHint", "dwFrameInterval", "wKeyFrameRate", "wPFrameRate", "wCompQuality", "wCompWindowSize", "wDelay", "dwMaxVideoFrameSize", "dwMaxPayloadTransferSize", "dwClockFrequency", "bmFramingInfo", "bPreferredVersion", "bMinVersion", "bMaxVersion", "bInterfaceNumber", "bFormatIndex" },
-        { "sizeof", "idVendor", "idProduct", "bcdUVC", "serialNumber", "manufacturer", "product" } };
+        { "sizeof", "product", "idVendor", "idProduct", "bcdUVC", "serialNumber", "manufacturer" } };
 static int JavaCPP_offsets[19][20] = {
         { -1 },
         { -1 },
@@ -540,19 +540,19 @@ static int JavaCPP_offsets[19][20] = {
         { -1 },
         { -1 },
         { -1 },
-        { sizeof(::uvc_frame), offsetof(::uvc_frame, sequence), offsetof(::uvc_frame, step), offsetof(::uvc_frame, data_bytes), offsetof(::uvc_frame, width), offsetof(::uvc_frame, height), offsetof(::uvc_frame, frame_format), offsetof(::uvc_frame, capture_time), offsetof(::uvc_frame, library_owns_data), offsetof(::uvc_frame, data), offsetof(::uvc_frame, source) },
-        { -1 },
-        { sizeof(::uvc_format_desc), offsetof(::uvc_format_desc, bDescriptorSubtype), offsetof(::uvc_format_desc, bFormatIndex), offsetof(::uvc_format_desc, bNumFrameDescriptors), offsetof(::uvc_format_desc, guidFormat), offsetof(::uvc_format_desc, fourccFormat), offsetof(::uvc_format_desc, bBitsPerPixel), offsetof(::uvc_format_desc, bmFlags), offsetof(::uvc_format_desc, bDefaultFrameIndex), offsetof(::uvc_format_desc, bAspectRatioX), offsetof(::uvc_format_desc, bAspectRatioY), offsetof(::uvc_format_desc, bmInterlaceFlags), offsetof(::uvc_format_desc, bCopyProtect), offsetof(::uvc_format_desc, bVariableSize), offsetof(::uvc_format_desc, frame_descs), offsetof(::uvc_format_desc, parent), offsetof(::uvc_format_desc, next), offsetof(::uvc_format_desc, prev) },
+        { sizeof(::uvc_stream_ctrl_t), offsetof(::uvc_stream_ctrl_t, wKeyFrameRate), offsetof(::uvc_stream_ctrl_t, wPFrameRate), offsetof(::uvc_stream_ctrl_t, wCompQuality), offsetof(::uvc_stream_ctrl_t, wCompWindowSize), offsetof(::uvc_stream_ctrl_t, wDelay), offsetof(::uvc_stream_ctrl_t, dwMaxVideoFrameSize), offsetof(::uvc_stream_ctrl_t, dwMaxPayloadTransferSize), offsetof(::uvc_stream_ctrl_t, dwClockFrequency), offsetof(::uvc_stream_ctrl_t, bmFramingInfo), offsetof(::uvc_stream_ctrl_t, bPreferredVersion), offsetof(::uvc_stream_ctrl_t, bMinVersion), offsetof(::uvc_stream_ctrl_t, bMaxVersion), offsetof(::uvc_stream_ctrl_t, bInterfaceNumber), offsetof(::uvc_stream_ctrl_t, bmHint), offsetof(::uvc_stream_ctrl_t, bFormatIndex), offsetof(::uvc_stream_ctrl_t, bFrameIndex), offsetof(::uvc_stream_ctrl_t, dwFrameInterval) },
         { -1 },
         { -1 },
+        { sizeof(::uvc_frame), offsetof(::uvc_frame, data), offsetof(::uvc_frame, source), offsetof(::uvc_frame, step), offsetof(::uvc_frame, sequence), offsetof(::uvc_frame, width), offsetof(::uvc_frame, data_bytes), offsetof(::uvc_frame, height), offsetof(::uvc_frame, frame_format), offsetof(::uvc_frame, capture_time), offsetof(::uvc_frame, library_owns_data) },
         { -1 },
-        { sizeof(::uvc_frame_desc), offsetof(::uvc_frame_desc, bDescriptorSubtype), offsetof(::uvc_frame_desc, bFrameIndex), offsetof(::uvc_frame_desc, bmCapabilities), offsetof(::uvc_frame_desc, wWidth), offsetof(::uvc_frame_desc, wHeight), offsetof(::uvc_frame_desc, dwMinBitRate), offsetof(::uvc_frame_desc, dwMaxBitRate), offsetof(::uvc_frame_desc, dwMaxVideoFrameBufferSize), offsetof(::uvc_frame_desc, dwDefaultFrameInterval), offsetof(::uvc_frame_desc, dwMinFrameInterval), offsetof(::uvc_frame_desc, dwMaxFrameInterval), offsetof(::uvc_frame_desc, dwFrameIntervalStep), offsetof(::uvc_frame_desc, bFrameIntervalType), offsetof(::uvc_frame_desc, dwBytesPerLine), offsetof(::uvc_frame_desc, intervals), offsetof(::uvc_frame_desc, parent), offsetof(::uvc_frame_desc, next), offsetof(::uvc_frame_desc, prev) },
+        { -1 },
+        { sizeof(::uvc_format_desc), offsetof(::uvc_format_desc, parent), offsetof(::uvc_format_desc, next), offsetof(::uvc_format_desc, prev), offsetof(::uvc_format_desc, fourccFormat), offsetof(::uvc_format_desc, bBitsPerPixel), offsetof(::uvc_format_desc, bmFlags), offsetof(::uvc_format_desc, bDefaultFrameIndex), offsetof(::uvc_format_desc, bAspectRatioX), offsetof(::uvc_format_desc, bAspectRatioY), offsetof(::uvc_format_desc, bmInterlaceFlags), offsetof(::uvc_format_desc, bCopyProtect), offsetof(::uvc_format_desc, bVariableSize), offsetof(::uvc_format_desc, frame_descs), offsetof(::uvc_format_desc, bDescriptorSubtype), offsetof(::uvc_format_desc, bNumFrameDescriptors), offsetof(::uvc_format_desc, guidFormat), offsetof(::uvc_format_desc, bFormatIndex) },
+        { -1 },
+        { sizeof(::uvc_frame_desc), offsetof(::uvc_frame_desc, parent), offsetof(::uvc_frame_desc, next), offsetof(::uvc_frame_desc, prev), offsetof(::uvc_frame_desc, bmCapabilities), offsetof(::uvc_frame_desc, wWidth), offsetof(::uvc_frame_desc, wHeight), offsetof(::uvc_frame_desc, dwMinBitRate), offsetof(::uvc_frame_desc, dwMaxBitRate), offsetof(::uvc_frame_desc, dwMaxVideoFrameBufferSize), offsetof(::uvc_frame_desc, dwDefaultFrameInterval), offsetof(::uvc_frame_desc, dwMinFrameInterval), offsetof(::uvc_frame_desc, dwMaxFrameInterval), offsetof(::uvc_frame_desc, dwFrameIntervalStep), offsetof(::uvc_frame_desc, bFrameIntervalType), offsetof(::uvc_frame_desc, dwBytesPerLine), offsetof(::uvc_frame_desc, intervals), offsetof(::uvc_frame_desc, bDescriptorSubtype), offsetof(::uvc_frame_desc, bFrameIndex) },
         { -1 },
         { sizeof(::timeval), offsetof(::timeval, tv_sec), offsetof(::timeval, tv_usec) },
-        { -1 },
-        { sizeof(::uvc_stream_ctrl_t), offsetof(::uvc_stream_ctrl_t, bFrameIndex), offsetof(::uvc_stream_ctrl_t, bmHint), offsetof(::uvc_stream_ctrl_t, dwFrameInterval), offsetof(::uvc_stream_ctrl_t, wKeyFrameRate), offsetof(::uvc_stream_ctrl_t, wPFrameRate), offsetof(::uvc_stream_ctrl_t, wCompQuality), offsetof(::uvc_stream_ctrl_t, wCompWindowSize), offsetof(::uvc_stream_ctrl_t, wDelay), offsetof(::uvc_stream_ctrl_t, dwMaxVideoFrameSize), offsetof(::uvc_stream_ctrl_t, dwMaxPayloadTransferSize), offsetof(::uvc_stream_ctrl_t, dwClockFrequency), offsetof(::uvc_stream_ctrl_t, bmFramingInfo), offsetof(::uvc_stream_ctrl_t, bPreferredVersion), offsetof(::uvc_stream_ctrl_t, bMinVersion), offsetof(::uvc_stream_ctrl_t, bMaxVersion), offsetof(::uvc_stream_ctrl_t, bInterfaceNumber), offsetof(::uvc_stream_ctrl_t, bFormatIndex) },
-        { sizeof(::uvc_device_descriptor), offsetof(::uvc_device_descriptor, idVendor), offsetof(::uvc_device_descriptor, idProduct), offsetof(::uvc_device_descriptor, bcdUVC), offsetof(::uvc_device_descriptor, serialNumber), offsetof(::uvc_device_descriptor, manufacturer), offsetof(::uvc_device_descriptor, product) } };
-static int JavaCPP_memberOffsetSizes[19] = { 1, 1, 1, 1, 1, 1, 1, 11, 1, 18, 1, 1, 1, 19, 1, 3, 1, 18, 7 };
+        { sizeof(::uvc_device_descriptor), offsetof(::uvc_device_descriptor, product), offsetof(::uvc_device_descriptor, idVendor), offsetof(::uvc_device_descriptor, idProduct), offsetof(::uvc_device_descriptor, bcdUVC), offsetof(::uvc_device_descriptor, serialNumber), offsetof(::uvc_device_descriptor, manufacturer) } };
+static int JavaCPP_memberOffsetSizes[19] = { 1, 1, 1, 1, 1, 1, 1, 18, 1, 1, 11, 1, 1, 18, 1, 19, 1, 3, 7 };
 
 extern "C" {
 
@@ -710,121 +710,461 @@ JNIEXPORT void JNICALL JNI_OnUnload(JavaVM* vm, void* reserved) {
     JavaCPP_vm = NULL;
 }
 
-JNIEXPORT void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback(::uvc_frame* arg0, void* arg1) {
-    JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[0](arg0, arg1);
-}
-JNIEXPORT void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback1(::uvc_frame* arg0, void* arg1) {
-    JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[1](arg0, arg1);
-}
-JNIEXPORT void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback2(::uvc_frame* arg0, void* arg1) {
-    JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[2](arg0, arg1);
-}
-JNIEXPORT void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback3(::uvc_frame* arg0, void* arg1) {
-    JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[3](arg0, arg1);
-}
-JNIEXPORT void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback4(::uvc_frame* arg0, void* arg1) {
-    JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[4](arg0, arg1);
-}
-JNIEXPORT void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback5(::uvc_frame* arg0, void* arg1) {
-    JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[5](arg0, arg1);
-}
-JNIEXPORT void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback6(::uvc_frame* arg0, void* arg1) {
-    JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[6](arg0, arg1);
-}
-JNIEXPORT void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback7(::uvc_frame* arg0, void* arg1) {
-    JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[7](arg0, arg1);
-}
-JNIEXPORT void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback8(::uvc_frame* arg0, void* arg1) {
-    JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[8](arg0, arg1);
-}
-JNIEXPORT void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback9(::uvc_frame* arg0, void* arg1) {
-    JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[9](arg0, arg1);
-}
-static void (*JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callbacks[10])(::uvc_frame* arg0, void* arg1) = {
-        JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback,
-        JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback1,
-        JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback2,
-        JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback3,
-        JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback4,
-        JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback5,
-        JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback6,
-        JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback7,
-        JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback8,
-        JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback9 };
-void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback::operator()(::uvc_frame* arg0, void* arg1) {
+
+JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_allocate(JNIEnv* env, jobject obj) {
     jthrowable exc = NULL;
-    JNIEnv* env;
-    bool attached = JavaCPP_getEnv(&env);
-    if (env == NULL) {
-        goto end;
+    try {
+        ::uvc_stream_ctrl_t* rptr = new ::uvc_stream_ctrl_t();
+        jlong rcapacity = 1;
+        JavaCPP_initPointer(env, obj, rptr, rcapacity, rptr, &JavaCPP_io_vacco_uvc_Uvc_00024UVCStreamCtrl_deallocate);
+    } catch (...) {
+        exc = JavaCPP_handleException(env, 8);
     }
-{
-    jvalue args[2];
-    jobject obj0 = NULL;
-    ::uvc_frame* ptr0 = NULL;
-    ptr0 = (::uvc_frame*)arg0;
-    if (ptr0 != NULL) { 
-        obj0 = JavaCPP_createPointer(env, 7);
-    }
-    if (obj0 != NULL) { 
-        env->SetLongField(obj0, JavaCPP_addressFID, ptr_to_jlong(ptr0));
-    }
-    args[0].l = obj0;
-    jobject obj1 = NULL;
-    void* ptr1 = NULL;
-    ptr1 = (void*)arg1;
-    if (ptr1 != NULL) { 
-        obj1 = JavaCPP_createPointer(env, 0);
-    }
-    if (obj1 != NULL) { 
-        env->SetLongField(obj1, JavaCPP_addressFID, ptr_to_jlong(ptr1));
-    }
-    args[1].l = obj1;
-    if (obj == NULL) {
-        obj = JavaCPP_createPointer(env, 8);
-        obj = obj == NULL ? NULL : env->NewGlobalRef(obj);
-        if (obj == NULL) {
-            JavaCPP_log("Error creating global reference of io.vacco.uvc.Uvc.UVCFrameCallback instance for callback.");
-        } else {
-            env->SetLongField(obj, JavaCPP_addressFID, ptr_to_jlong(this));
-        }
-        for (int i = 0; i < 10; i++) {
-            if (this == &JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[i]) {
-                ptr = JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callbacks[i];
-                break;
-            }
-        }
-    }
-    if (mid == NULL) {
-        mid = JavaCPP_getMethodID(env, 8, "call", "(Lio/vacco/uvc/Uvc$UVCFrame;Lorg/bytedeco/javacpp/Pointer;)V");
-    }
-    if (obj == NULL) {
-        JavaCPP_log("Function pointer object is NULL in callback for io.vacco.uvc.Uvc.UVCFrameCallback.");
-    } else if (mid == NULL) {
-        JavaCPP_log("Error getting method ID of function caller \"public abstract void io.vacco.uvc.Uvc$UVCFrameCallback.call(io.vacco.uvc.Uvc$UVCFrame,org.bytedeco.javacpp.Pointer)\" for callback.");
-    } else {
-        env->CallVoidMethodA(obj, mid, args);
-        if ((exc = env->ExceptionOccurred()) != NULL) {
-            env->ExceptionClear();
-        }
-    }
-    env->DeleteLocalRef(obj0);
-    env->DeleteLocalRef(obj1);
-}
-end:
+
     if (exc != NULL) {
-        jstring str = (jstring)env->CallObjectMethod(exc, JavaCPP_toStringMID);
-        env->DeleteLocalRef(exc);
-        const char *msg = JavaCPP_getStringBytes(env, str);
-        JavaCPP_exception e(msg);
-        JavaCPP_releaseStringBytes(env, str, msg);
-        env->DeleteLocalRef(str);
-        JavaCPP_detach(attached);
-        throw e;
-    } else {
-        JavaCPP_detach(attached);
+        env->Throw(exc);
     }
 }
+JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_allocateArray(JNIEnv* env, jobject obj, jint arg0) {
+    jthrowable exc = NULL;
+    try {
+        ::uvc_stream_ctrl_t* rptr = new ::uvc_stream_ctrl_t[arg0];
+        jlong rcapacity = arg0;
+        JavaCPP_initPointer(env, obj, rptr, rcapacity, rptr, &JavaCPP_io_vacco_uvc_Uvc_00024UVCStreamCtrl_deallocateArray);
+    } catch (...) {
+        exc = JavaCPP_handleException(env, 8);
+    }
+
+    if (exc != NULL) {
+        env->Throw(exc);
+    }
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_wKeyFrameRate__S(JNIEnv* env, jobject obj, jshort arg0) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->wKeyFrameRate = (uint16_t)arg0;
+    return rarg;
+}
+JNIEXPORT jshort JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_wKeyFrameRate__(JNIEnv* env, jobject obj) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jshort rarg = 0;
+    uint16_t rval = (uint16_t)ptr->wKeyFrameRate;
+    rarg = (jshort)rval;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_wPFrameRate__S(JNIEnv* env, jobject obj, jshort arg0) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->wPFrameRate = (uint16_t)arg0;
+    return rarg;
+}
+JNIEXPORT jshort JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_wPFrameRate__(JNIEnv* env, jobject obj) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jshort rarg = 0;
+    uint16_t rval = (uint16_t)ptr->wPFrameRate;
+    rarg = (jshort)rval;
+    return rarg;
+}
+JNIEXPORT jshort JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_wCompQuality__(JNIEnv* env, jobject obj) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jshort rarg = 0;
+    uint16_t rval = (uint16_t)ptr->wCompQuality;
+    rarg = (jshort)rval;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_wCompQuality__S(JNIEnv* env, jobject obj, jshort arg0) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->wCompQuality = (uint16_t)arg0;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_wCompWindowSize__S(JNIEnv* env, jobject obj, jshort arg0) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->wCompWindowSize = (uint16_t)arg0;
+    return rarg;
+}
+JNIEXPORT jshort JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_wCompWindowSize__(JNIEnv* env, jobject obj) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jshort rarg = 0;
+    uint16_t rval = (uint16_t)ptr->wCompWindowSize;
+    rarg = (jshort)rval;
+    return rarg;
+}
+JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_wDelay__(JNIEnv* env, jobject obj) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jint rarg = 0;
+    uint32_t rval = (uint32_t)ptr->wDelay;
+    rarg = (jint)rval;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_wDelay__I(JNIEnv* env, jobject obj, jint arg0) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->wDelay = (uint32_t)arg0;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_dwMaxVideoFrameSize__I(JNIEnv* env, jobject obj, jint arg0) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->dwMaxVideoFrameSize = (uint32_t)arg0;
+    return rarg;
+}
+JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_dwMaxVideoFrameSize__(JNIEnv* env, jobject obj) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jint rarg = 0;
+    uint32_t rval = (uint32_t)ptr->dwMaxVideoFrameSize;
+    rarg = (jint)rval;
+    return rarg;
+}
+JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_dwMaxPayloadTransferSize__(JNIEnv* env, jobject obj) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jint rarg = 0;
+    uint32_t rval = (uint32_t)ptr->dwMaxPayloadTransferSize;
+    rarg = (jint)rval;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_dwMaxPayloadTransferSize__I(JNIEnv* env, jobject obj, jint arg0) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->dwMaxPayloadTransferSize = (uint32_t)arg0;
+    return rarg;
+}
+JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_dwClockFrequency__(JNIEnv* env, jobject obj) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jint rarg = 0;
+    uint32_t rval = (uint32_t)ptr->dwClockFrequency;
+    rarg = (jint)rval;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_dwClockFrequency__I(JNIEnv* env, jobject obj, jint arg0) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->dwClockFrequency = (uint32_t)arg0;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bmFramingInfo__B(JNIEnv* env, jobject obj, jbyte arg0) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->bmFramingInfo = (uint8_t)arg0;
+    return rarg;
+}
+JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bmFramingInfo__(JNIEnv* env, jobject obj) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jbyte rarg = 0;
+    uint8_t rval = (uint8_t)ptr->bmFramingInfo;
+    rarg = (jbyte)rval;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bPreferredVersion__B(JNIEnv* env, jobject obj, jbyte arg0) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->bPreferredVersion = (uint8_t)arg0;
+    return rarg;
+}
+JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bPreferredVersion__(JNIEnv* env, jobject obj) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jbyte rarg = 0;
+    uint8_t rval = (uint8_t)ptr->bPreferredVersion;
+    rarg = (jbyte)rval;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bMinVersion__B(JNIEnv* env, jobject obj, jbyte arg0) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->bMinVersion = (uint8_t)arg0;
+    return rarg;
+}
+JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bMinVersion__(JNIEnv* env, jobject obj) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jbyte rarg = 0;
+    uint8_t rval = (uint8_t)ptr->bMinVersion;
+    rarg = (jbyte)rval;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bMaxVersion__B(JNIEnv* env, jobject obj, jbyte arg0) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->bMaxVersion = (uint8_t)arg0;
+    return rarg;
+}
+JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bMaxVersion__(JNIEnv* env, jobject obj) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jbyte rarg = 0;
+    uint8_t rval = (uint8_t)ptr->bMaxVersion;
+    rarg = (jbyte)rval;
+    return rarg;
+}
+JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bInterfaceNumber__(JNIEnv* env, jobject obj) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jbyte rarg = 0;
+    uint8_t rval = (uint8_t)ptr->bInterfaceNumber;
+    rarg = (jbyte)rval;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bInterfaceNumber__B(JNIEnv* env, jobject obj, jbyte arg0) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->bInterfaceNumber = (uint8_t)arg0;
+    return rarg;
+}
+JNIEXPORT jshort JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bmHint__(JNIEnv* env, jobject obj) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jshort rarg = 0;
+    uint16_t rval = (uint16_t)ptr->bmHint;
+    rarg = (jshort)rval;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bmHint__S(JNIEnv* env, jobject obj, jshort arg0) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->bmHint = (uint16_t)arg0;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bFormatIndex__B(JNIEnv* env, jobject obj, jbyte arg0) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->bFormatIndex = (uint8_t)arg0;
+    return rarg;
+}
+JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bFormatIndex__(JNIEnv* env, jobject obj) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jbyte rarg = 0;
+    uint8_t rval = (uint8_t)ptr->bFormatIndex;
+    rarg = (jbyte)rval;
+    return rarg;
+}
+JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bFrameIndex__(JNIEnv* env, jobject obj) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jbyte rarg = 0;
+    uint8_t rval = (uint8_t)ptr->bFrameIndex;
+    rarg = (jbyte)rval;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bFrameIndex__B(JNIEnv* env, jobject obj, jbyte arg0) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->bFrameIndex = (uint8_t)arg0;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_dwFrameInterval__I(JNIEnv* env, jobject obj, jint arg0) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->dwFrameInterval = (uint32_t)arg0;
+    return rarg;
+}
+JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_dwFrameInterval__(JNIEnv* env, jobject obj) {
+    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jint rarg = 0;
+    uint32_t rval = (uint32_t)ptr->dwFrameInterval;
+    rarg = (jint)rval;
+    return rarg;
+}
+
 JNIEXPORT void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_allocate_callback(::uvc_frame* arg0, void* arg1) {
     JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[0](arg0, arg1);
 }
@@ -866,6 +1206,80 @@ static void (*JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_allocate_callbacks[
         JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_allocate_callback7,
         JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_allocate_callback8,
         JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_allocate_callback9 };
+void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback::operator()(::uvc_frame* arg0, void* arg1) {
+    jthrowable exc = NULL;
+    JNIEnv* env;
+    bool attached = JavaCPP_getEnv(&env);
+    if (env == NULL) {
+        goto end;
+    }
+{
+    jvalue args[2];
+    jobject obj0 = NULL;
+    ::uvc_frame* ptr0 = NULL;
+    ptr0 = (::uvc_frame*)arg0;
+    if (ptr0 != NULL) { 
+        obj0 = JavaCPP_createPointer(env, 10);
+    }
+    if (obj0 != NULL) { 
+        env->SetLongField(obj0, JavaCPP_addressFID, ptr_to_jlong(ptr0));
+    }
+    args[0].l = obj0;
+    jobject obj1 = NULL;
+    void* ptr1 = NULL;
+    ptr1 = (void*)arg1;
+    if (ptr1 != NULL) { 
+        obj1 = JavaCPP_createPointer(env, 0);
+    }
+    if (obj1 != NULL) { 
+        env->SetLongField(obj1, JavaCPP_addressFID, ptr_to_jlong(ptr1));
+    }
+    args[1].l = obj1;
+    if (obj == NULL) {
+        obj = JavaCPP_createPointer(env, 11);
+        obj = obj == NULL ? NULL : env->NewGlobalRef(obj);
+        if (obj == NULL) {
+            JavaCPP_log("Error creating global reference of io.vacco.uvc.Uvc.UVCFrameCallback instance for callback.");
+        } else {
+            env->SetLongField(obj, JavaCPP_addressFID, ptr_to_jlong(this));
+        }
+        for (int i = 0; i < 10; i++) {
+            if (this == &JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[i]) {
+                ptr = JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_allocate_callbacks[i];
+                break;
+            }
+        }
+    }
+    if (mid == NULL) {
+        mid = JavaCPP_getMethodID(env, 11, "call", "(Lio/vacco/uvc/Uvc$UVCFrame;Lorg/bytedeco/javacpp/Pointer;)V");
+    }
+    if (obj == NULL) {
+        JavaCPP_log("Function pointer object is NULL in callback for io.vacco.uvc.Uvc.UVCFrameCallback.");
+    } else if (mid == NULL) {
+        JavaCPP_log("Error getting method ID of function caller \"public abstract void io.vacco.uvc.Uvc$UVCFrameCallback.call(io.vacco.uvc.Uvc$UVCFrame,org.bytedeco.javacpp.Pointer)\" for callback.");
+    } else {
+        env->CallVoidMethodA(obj, mid, args);
+        if ((exc = env->ExceptionOccurred()) != NULL) {
+            env->ExceptionClear();
+        }
+    }
+    env->DeleteLocalRef(obj0);
+    env->DeleteLocalRef(obj1);
+}
+end:
+    if (exc != NULL) {
+        jstring str = (jstring)env->CallObjectMethod(exc, JavaCPP_toStringMID);
+        env->DeleteLocalRef(exc);
+        const char *msg = JavaCPP_getStringBytes(env, str);
+        JavaCPP_exception e(msg);
+        JavaCPP_releaseStringBytes(env, str, msg);
+        env->DeleteLocalRef(str);
+        JavaCPP_detach(attached);
+        throw e;
+    } else {
+        JavaCPP_detach(attached);
+    }
+}
 JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameCallback_allocate(JNIEnv* env, jobject obj) {
     obj = env->NewWeakGlobalRef(obj);
     if (obj == NULL) {
@@ -885,422 +1299,52 @@ JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameCallback_allocate(JNIE
         }
     }
 }
+JNIEXPORT void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback(::uvc_frame* arg0, void* arg1) {
+    JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[0](arg0, arg1);
+}
+JNIEXPORT void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback1(::uvc_frame* arg0, void* arg1) {
+    JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[1](arg0, arg1);
+}
+JNIEXPORT void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback2(::uvc_frame* arg0, void* arg1) {
+    JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[2](arg0, arg1);
+}
+JNIEXPORT void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback3(::uvc_frame* arg0, void* arg1) {
+    JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[3](arg0, arg1);
+}
+JNIEXPORT void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback4(::uvc_frame* arg0, void* arg1) {
+    JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[4](arg0, arg1);
+}
+JNIEXPORT void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback5(::uvc_frame* arg0, void* arg1) {
+    JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[5](arg0, arg1);
+}
+JNIEXPORT void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback6(::uvc_frame* arg0, void* arg1) {
+    JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[6](arg0, arg1);
+}
+JNIEXPORT void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback7(::uvc_frame* arg0, void* arg1) {
+    JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[7](arg0, arg1);
+}
+JNIEXPORT void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback8(::uvc_frame* arg0, void* arg1) {
+    JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[8](arg0, arg1);
+}
+JNIEXPORT void JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback9(::uvc_frame* arg0, void* arg1) {
+    JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_instances[9](arg0, arg1);
+}
+static void (*JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callbacks[10])(::uvc_frame* arg0, void* arg1) = {
+        JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback,
+        JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback1,
+        JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback2,
+        JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback3,
+        JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback4,
+        JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback5,
+        JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback6,
+        JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback7,
+        JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback8,
+        JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameCallback_call_callback9 };
 
-JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_allocateArray(JNIEnv* env, jobject obj, jint arg0) {
-    jthrowable exc = NULL;
-    try {
-        ::uvc_format_desc* rptr = new ::uvc_format_desc[arg0];
-        jlong rcapacity = arg0;
-        JavaCPP_initPointer(env, obj, rptr, rcapacity, rptr, &JavaCPP_io_vacco_uvc_Uvc_00024UVCFormatDesc_deallocateArray);
-    } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
-    }
-
-    if (exc != NULL) {
-        env->Throw(exc);
-    }
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bDescriptorSubtype__I(JNIEnv* env, jobject obj, jint arg0) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->bDescriptorSubtype = (uvc_vs_desc_subtype)arg0;
-    return rarg;
-}
-JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bDescriptorSubtype__(JNIEnv* env, jobject obj) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jint rarg = 0;
-    uvc_vs_desc_subtype rval = (uvc_vs_desc_subtype)ptr->bDescriptorSubtype;
-    rarg = (jint)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bFormatIndex__B(JNIEnv* env, jobject obj, jbyte arg0) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->bFormatIndex = (uint8_t)arg0;
-    return rarg;
-}
-JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bFormatIndex__(JNIEnv* env, jobject obj) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jbyte rarg = 0;
-    uint8_t rval = (uint8_t)ptr->bFormatIndex;
-    rarg = (jbyte)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bNumFrameDescriptors__B(JNIEnv* env, jobject obj, jbyte arg0) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->bNumFrameDescriptors = (uint8_t)arg0;
-    return rarg;
-}
-JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bNumFrameDescriptors__(JNIEnv* env, jobject obj) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jbyte rarg = 0;
-    uint8_t rval = (uint8_t)ptr->bNumFrameDescriptors;
-    rarg = (jbyte)rval;
-    return rarg;
-}
-JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_guidFormat__I(JNIEnv* env, jobject obj, jint arg0) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jbyte rarg = 0;
-    uint8_t rval = (uint8_t)ptr->guidFormat[arg0];
-    rarg = (jbyte)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_guidFormat__(JNIEnv* env, jobject obj) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = NULL;
-    uint8_t * rptr;
-    rptr = (uint8_t *)ptr->guidFormat;
-    if (rptr != NULL) {
-        rarg = JavaCPP_createPointer(env, 12);
-        if (rarg != NULL) {
-            env->SetLongField(rarg, JavaCPP_addressFID, ptr_to_jlong(rptr));
-        }
-    }
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_guidFormat__IB(JNIEnv* env, jobject obj, jint arg0, jbyte arg1) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->guidFormat[arg0] = (uint8_t)arg1;
-    return rarg;
-}
-JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_fourccFormat__I(JNIEnv* env, jobject obj, jint arg0) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jbyte rarg = 0;
-    uint8_t rval = (uint8_t)ptr->fourccFormat[arg0];
-    rarg = (jbyte)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_fourccFormat__(JNIEnv* env, jobject obj) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = NULL;
-    uint8_t * rptr;
-    rptr = (uint8_t *)ptr->fourccFormat;
-    if (rptr != NULL) {
-        rarg = JavaCPP_createPointer(env, 12);
-        if (rarg != NULL) {
-            env->SetLongField(rarg, JavaCPP_addressFID, ptr_to_jlong(rptr));
-        }
-    }
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_fourccFormat__IB(JNIEnv* env, jobject obj, jint arg0, jbyte arg1) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->fourccFormat[arg0] = (uint8_t)arg1;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bBitsPerPixel__B(JNIEnv* env, jobject obj, jbyte arg0) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->bBitsPerPixel = (uint8_t)arg0;
-    return rarg;
-}
-JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bBitsPerPixel__(JNIEnv* env, jobject obj) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jbyte rarg = 0;
-    uint8_t rval = (uint8_t)ptr->bBitsPerPixel;
-    rarg = (jbyte)rval;
-    return rarg;
-}
-JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bmFlags__(JNIEnv* env, jobject obj) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jbyte rarg = 0;
-    uint8_t rval = (uint8_t)ptr->bmFlags;
-    rarg = (jbyte)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bmFlags__B(JNIEnv* env, jobject obj, jbyte arg0) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->bmFlags = (uint8_t)arg0;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bDefaultFrameIndex__B(JNIEnv* env, jobject obj, jbyte arg0) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->bDefaultFrameIndex = (uint8_t)arg0;
-    return rarg;
-}
-JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bDefaultFrameIndex__(JNIEnv* env, jobject obj) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jbyte rarg = 0;
-    uint8_t rval = (uint8_t)ptr->bDefaultFrameIndex;
-    rarg = (jbyte)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bAspectRatioX__B(JNIEnv* env, jobject obj, jbyte arg0) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->bAspectRatioX = (uint8_t)arg0;
-    return rarg;
-}
-JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bAspectRatioX__(JNIEnv* env, jobject obj) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jbyte rarg = 0;
-    uint8_t rval = (uint8_t)ptr->bAspectRatioX;
-    rarg = (jbyte)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bAspectRatioY__B(JNIEnv* env, jobject obj, jbyte arg0) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->bAspectRatioY = (uint8_t)arg0;
-    return rarg;
-}
-JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bAspectRatioY__(JNIEnv* env, jobject obj) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jbyte rarg = 0;
-    uint8_t rval = (uint8_t)ptr->bAspectRatioY;
-    rarg = (jbyte)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bmInterlaceFlags__B(JNIEnv* env, jobject obj, jbyte arg0) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->bmInterlaceFlags = (uint8_t)arg0;
-    return rarg;
-}
-JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bmInterlaceFlags__(JNIEnv* env, jobject obj) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jbyte rarg = 0;
-    uint8_t rval = (uint8_t)ptr->bmInterlaceFlags;
-    rarg = (jbyte)rval;
-    return rarg;
-}
-JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bCopyProtect__(JNIEnv* env, jobject obj) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jbyte rarg = 0;
-    uint8_t rval = (uint8_t)ptr->bCopyProtect;
-    rarg = (jbyte)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bCopyProtect__B(JNIEnv* env, jobject obj, jbyte arg0) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->bCopyProtect = (uint8_t)arg0;
-    return rarg;
-}
-JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bVariableSize__(JNIEnv* env, jobject obj) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jbyte rarg = 0;
-    uint8_t rval = (uint8_t)ptr->bVariableSize;
-    rarg = (jbyte)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bVariableSize__B(JNIEnv* env, jobject obj, jbyte arg0) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->bVariableSize = (uint8_t)arg0;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_frame_1descs__Lio_vacco_uvc_Uvc_00024UVCFrameDesc_2(JNIEnv* env, jobject obj, jobject arg0) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    ::uvc_frame_desc* ptr0 = arg0 == NULL ? NULL : (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
-    jlong position0 = arg0 == NULL ? 0 : env->GetLongField(arg0, JavaCPP_positionFID);
-    ptr0 += position0;
-    jobject rarg = obj;
-    ptr->frame_descs = ptr0;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_frame_1descs__(JNIEnv* env, jobject obj) {
-    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = NULL;
-    ::uvc_frame_desc* rptr;
-    rptr = ptr->frame_descs;
-    if (rptr != NULL) {
-        rarg = JavaCPP_createPointer(env, 13);
-        if (rarg != NULL) {
-            env->SetLongField(rarg, JavaCPP_addressFID, ptr_to_jlong(rptr));
-        }
-    }
-    return rarg;
-}
 JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_parent__(JNIEnv* env, jobject obj) {
     ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1309,7 +1353,7 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_parent__(JNIE
     ::uvc_streaming_interface* rptr;
     rptr = ptr->parent;
     if (rptr != NULL) {
-        rarg = JavaCPP_createPointer(env, 14);
+        rarg = JavaCPP_createPointer(env, 12);
         if (rarg != NULL) {
             env->SetLongField(rarg, JavaCPP_addressFID, ptr_to_jlong(rptr));
         }
@@ -1319,7 +1363,7 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_parent__(JNIE
 JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_parent__Lio_vacco_uvc_Uvc_00024UVCStreamingInterface_2(JNIEnv* env, jobject obj, jobject arg0) {
     ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1332,7 +1376,7 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_parent__Lio_v
 JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_next__Lio_vacco_uvc_Uvc_00024UVCFormatDesc_2(JNIEnv* env, jobject obj, jobject arg0) {
     ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1347,7 +1391,7 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_next__Lio_vac
 JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_next__(JNIEnv* env, jobject obj) {
     ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1358,7 +1402,7 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_next__(JNIEnv
     if (rptr == ptr) {
         rarg = obj;
     } else if (rptr != NULL) {
-        rarg = JavaCPP_createPointer(env, 9);
+        rarg = JavaCPP_createPointer(env, 13);
         if (rarg != NULL) {
             env->SetLongField(rarg, JavaCPP_addressFID, ptr_to_jlong(rptr));
         }
@@ -1368,7 +1412,7 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_next__(JNIEnv
 JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_prev__(JNIEnv* env, jobject obj) {
     ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1379,7 +1423,7 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_prev__(JNIEnv
     if (rptr == ptr) {
         rarg = obj;
     } else if (rptr != NULL) {
-        rarg = JavaCPP_createPointer(env, 9);
+        rarg = JavaCPP_createPointer(env, 13);
         if (rarg != NULL) {
             env->SetLongField(rarg, JavaCPP_addressFID, ptr_to_jlong(rptr));
         }
@@ -1389,7 +1433,7 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_prev__(JNIEnv
 JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_prev__Lio_vacco_uvc_Uvc_00024UVCFormatDesc_2(JNIEnv* env, jobject obj, jobject arg0) {
     ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1408,44 +1452,309 @@ JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_allocate(JNIEnv*
         jlong rcapacity = 1;
         JavaCPP_initPointer(env, obj, rptr, rcapacity, rptr, &JavaCPP_io_vacco_uvc_Uvc_00024UVCFormatDesc_deallocate);
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
         env->Throw(exc);
     }
 }
-
-JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_allocateArray(JNIEnv* env, jobject obj, jint arg0) {
+JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_allocateArray(JNIEnv* env, jobject obj, jint arg0) {
     jthrowable exc = NULL;
     try {
-        ::uvc_frame_desc* rptr = new ::uvc_frame_desc[arg0];
+        ::uvc_format_desc* rptr = new ::uvc_format_desc[arg0];
         jlong rcapacity = arg0;
-        JavaCPP_initPointer(env, obj, rptr, rcapacity, rptr, &JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameDesc_deallocateArray);
+        JavaCPP_initPointer(env, obj, rptr, rcapacity, rptr, &JavaCPP_io_vacco_uvc_Uvc_00024UVCFormatDesc_deallocateArray);
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
         env->Throw(exc);
     }
 }
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_bDescriptorSubtype__I(JNIEnv* env, jobject obj, jint arg0) {
-    ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_fourccFormat__I(JNIEnv* env, jobject obj, jint arg0) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jbyte rarg = 0;
+    uint8_t rval = (uint8_t)ptr->fourccFormat[arg0];
+    rarg = (jbyte)rval;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_fourccFormat__IB(JNIEnv* env, jobject obj, jint arg0, jbyte arg1) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
     ptr += position;
     jobject rarg = obj;
-    ptr->bDescriptorSubtype = (uvc_vs_desc_subtype)arg0;
+    ptr->fourccFormat[arg0] = (uint8_t)arg1;
     return rarg;
 }
-JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_bDescriptorSubtype__(JNIEnv* env, jobject obj) {
-    ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_fourccFormat__(JNIEnv* env, jobject obj) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = NULL;
+    uint8_t * rptr;
+    rptr = (uint8_t *)ptr->fourccFormat;
+    if (rptr != NULL) {
+        rarg = JavaCPP_createPointer(env, 14);
+        if (rarg != NULL) {
+            env->SetLongField(rarg, JavaCPP_addressFID, ptr_to_jlong(rptr));
+        }
+    }
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bBitsPerPixel__B(JNIEnv* env, jobject obj, jbyte arg0) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->bBitsPerPixel = (uint8_t)arg0;
+    return rarg;
+}
+JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bBitsPerPixel__(JNIEnv* env, jobject obj) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jbyte rarg = 0;
+    uint8_t rval = (uint8_t)ptr->bBitsPerPixel;
+    rarg = (jbyte)rval;
+    return rarg;
+}
+JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bmFlags__(JNIEnv* env, jobject obj) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jbyte rarg = 0;
+    uint8_t rval = (uint8_t)ptr->bmFlags;
+    rarg = (jbyte)rval;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bmFlags__B(JNIEnv* env, jobject obj, jbyte arg0) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->bmFlags = (uint8_t)arg0;
+    return rarg;
+}
+JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bDefaultFrameIndex__(JNIEnv* env, jobject obj) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jbyte rarg = 0;
+    uint8_t rval = (uint8_t)ptr->bDefaultFrameIndex;
+    rarg = (jbyte)rval;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bDefaultFrameIndex__B(JNIEnv* env, jobject obj, jbyte arg0) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->bDefaultFrameIndex = (uint8_t)arg0;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bAspectRatioX__B(JNIEnv* env, jobject obj, jbyte arg0) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->bAspectRatioX = (uint8_t)arg0;
+    return rarg;
+}
+JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bAspectRatioX__(JNIEnv* env, jobject obj) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jbyte rarg = 0;
+    uint8_t rval = (uint8_t)ptr->bAspectRatioX;
+    rarg = (jbyte)rval;
+    return rarg;
+}
+JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bAspectRatioY__(JNIEnv* env, jobject obj) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jbyte rarg = 0;
+    uint8_t rval = (uint8_t)ptr->bAspectRatioY;
+    rarg = (jbyte)rval;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bAspectRatioY__B(JNIEnv* env, jobject obj, jbyte arg0) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->bAspectRatioY = (uint8_t)arg0;
+    return rarg;
+}
+JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bmInterlaceFlags__(JNIEnv* env, jobject obj) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jbyte rarg = 0;
+    uint8_t rval = (uint8_t)ptr->bmInterlaceFlags;
+    rarg = (jbyte)rval;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bmInterlaceFlags__B(JNIEnv* env, jobject obj, jbyte arg0) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->bmInterlaceFlags = (uint8_t)arg0;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bCopyProtect__B(JNIEnv* env, jobject obj, jbyte arg0) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->bCopyProtect = (uint8_t)arg0;
+    return rarg;
+}
+JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bCopyProtect__(JNIEnv* env, jobject obj) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jbyte rarg = 0;
+    uint8_t rval = (uint8_t)ptr->bCopyProtect;
+    rarg = (jbyte)rval;
+    return rarg;
+}
+JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bVariableSize__(JNIEnv* env, jobject obj) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jbyte rarg = 0;
+    uint8_t rval = (uint8_t)ptr->bVariableSize;
+    rarg = (jbyte)rval;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bVariableSize__B(JNIEnv* env, jobject obj, jbyte arg0) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->bVariableSize = (uint8_t)arg0;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_frame_1descs__(JNIEnv* env, jobject obj) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = NULL;
+    ::uvc_frame_desc* rptr;
+    rptr = ptr->frame_descs;
+    if (rptr != NULL) {
+        rarg = JavaCPP_createPointer(env, 15);
+        if (rarg != NULL) {
+            env->SetLongField(rarg, JavaCPP_addressFID, ptr_to_jlong(rptr));
+        }
+    }
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_frame_1descs__Lio_vacco_uvc_Uvc_00024UVCFrameDesc_2(JNIEnv* env, jobject obj, jobject arg0) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    ::uvc_frame_desc* ptr0 = arg0 == NULL ? NULL : (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
+    jlong position0 = arg0 == NULL ? 0 : env->GetLongField(arg0, JavaCPP_positionFID);
+    ptr0 += position0;
+    jobject rarg = obj;
+    ptr->frame_descs = ptr0;
+    return rarg;
+}
+JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bDescriptorSubtype__(JNIEnv* env, jobject obj) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1455,35 +1764,251 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_bDescriptorSubtyp
     rarg = (jint)rval;
     return rarg;
 }
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_bFrameIndex__B(JNIEnv* env, jobject obj, jbyte arg0) {
-    ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bDescriptorSubtype__I(JNIEnv* env, jobject obj, jint arg0) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
     ptr += position;
     jobject rarg = obj;
-    ptr->bFrameIndex = (uint8_t)arg0;
+    ptr->bDescriptorSubtype = (uvc_vs_desc_subtype)arg0;
     return rarg;
 }
-JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_bFrameIndex__(JNIEnv* env, jobject obj) {
-    ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bNumFrameDescriptors__(JNIEnv* env, jobject obj) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
     ptr += position;
     jbyte rarg = 0;
-    uint8_t rval = (uint8_t)ptr->bFrameIndex;
+    uint8_t rval = (uint8_t)ptr->bNumFrameDescriptors;
     rarg = (jbyte)rval;
     return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bNumFrameDescriptors__B(JNIEnv* env, jobject obj, jbyte arg0) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->bNumFrameDescriptors = (uint8_t)arg0;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_guidFormat__IB(JNIEnv* env, jobject obj, jint arg0, jbyte arg1) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->guidFormat[arg0] = (uint8_t)arg1;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_guidFormat__(JNIEnv* env, jobject obj) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = NULL;
+    uint8_t * rptr;
+    rptr = (uint8_t *)ptr->guidFormat;
+    if (rptr != NULL) {
+        rarg = JavaCPP_createPointer(env, 14);
+        if (rarg != NULL) {
+            env->SetLongField(rarg, JavaCPP_addressFID, ptr_to_jlong(rptr));
+        }
+    }
+    return rarg;
+}
+JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_guidFormat__I(JNIEnv* env, jobject obj, jint arg0) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jbyte rarg = 0;
+    uint8_t rval = (uint8_t)ptr->guidFormat[arg0];
+    rarg = (jbyte)rval;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bFormatIndex__B(JNIEnv* env, jobject obj, jbyte arg0) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->bFormatIndex = (uint8_t)arg0;
+    return rarg;
+}
+JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFormatDesc_bFormatIndex__(JNIEnv* env, jobject obj) {
+    ::uvc_format_desc* ptr = (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jbyte rarg = 0;
+    uint8_t rval = (uint8_t)ptr->bFormatIndex;
+    rarg = (jbyte)rval;
+    return rarg;
+}
+
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_parent__Lio_vacco_uvc_Uvc_00024UVCFormatDesc_2(JNIEnv* env, jobject obj, jobject arg0) {
+    ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    ::uvc_format_desc* ptr0 = arg0 == NULL ? NULL : (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
+    jlong position0 = arg0 == NULL ? 0 : env->GetLongField(arg0, JavaCPP_positionFID);
+    ptr0 += position0;
+    jobject rarg = obj;
+    ptr->parent = ptr0;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_parent__(JNIEnv* env, jobject obj) {
+    ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = NULL;
+    ::uvc_format_desc* rptr;
+    rptr = ptr->parent;
+    if (rptr != NULL) {
+        rarg = JavaCPP_createPointer(env, 13);
+        if (rarg != NULL) {
+            env->SetLongField(rarg, JavaCPP_addressFID, ptr_to_jlong(rptr));
+        }
+    }
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_next__(JNIEnv* env, jobject obj) {
+    ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = NULL;
+    ::uvc_frame_desc* rptr;
+    rptr = ptr->next;
+    if (rptr == ptr) {
+        rarg = obj;
+    } else if (rptr != NULL) {
+        rarg = JavaCPP_createPointer(env, 15);
+        if (rarg != NULL) {
+            env->SetLongField(rarg, JavaCPP_addressFID, ptr_to_jlong(rptr));
+        }
+    }
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_next__Lio_vacco_uvc_Uvc_00024UVCFrameDesc_2(JNIEnv* env, jobject obj, jobject arg0) {
+    ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    ::uvc_frame_desc* ptr0 = arg0 == NULL ? NULL : (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
+    jlong position0 = arg0 == NULL ? 0 : env->GetLongField(arg0, JavaCPP_positionFID);
+    ptr0 += position0;
+    jobject rarg = obj;
+    ptr->next = ptr0;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_prev__Lio_vacco_uvc_Uvc_00024UVCFrameDesc_2(JNIEnv* env, jobject obj, jobject arg0) {
+    ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    ::uvc_frame_desc* ptr0 = arg0 == NULL ? NULL : (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
+    jlong position0 = arg0 == NULL ? 0 : env->GetLongField(arg0, JavaCPP_positionFID);
+    ptr0 += position0;
+    jobject rarg = obj;
+    ptr->prev = ptr0;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_prev__(JNIEnv* env, jobject obj) {
+    ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = NULL;
+    ::uvc_frame_desc* rptr;
+    rptr = ptr->prev;
+    if (rptr == ptr) {
+        rarg = obj;
+    } else if (rptr != NULL) {
+        rarg = JavaCPP_createPointer(env, 15);
+        if (rarg != NULL) {
+            env->SetLongField(rarg, JavaCPP_addressFID, ptr_to_jlong(rptr));
+        }
+    }
+    return rarg;
+}
+JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_allocate(JNIEnv* env, jobject obj) {
+    jthrowable exc = NULL;
+    try {
+        ::uvc_frame_desc* rptr = new ::uvc_frame_desc();
+        jlong rcapacity = 1;
+        JavaCPP_initPointer(env, obj, rptr, rcapacity, rptr, &JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameDesc_deallocate);
+    } catch (...) {
+        exc = JavaCPP_handleException(env, 8);
+    }
+
+    if (exc != NULL) {
+        env->Throw(exc);
+    }
+}
+JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_allocateArray(JNIEnv* env, jobject obj, jint arg0) {
+    jthrowable exc = NULL;
+    try {
+        ::uvc_frame_desc* rptr = new ::uvc_frame_desc[arg0];
+        jlong rcapacity = arg0;
+        JavaCPP_initPointer(env, obj, rptr, rcapacity, rptr, &JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameDesc_deallocateArray);
+    } catch (...) {
+        exc = JavaCPP_handleException(env, 8);
+    }
+
+    if (exc != NULL) {
+        env->Throw(exc);
+    }
 }
 JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_bmCapabilities__B(JNIEnv* env, jobject obj, jbyte arg0) {
     ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1495,7 +2020,7 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_bmCapabilities
 JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_bmCapabilities__(JNIEnv* env, jobject obj) {
     ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1508,7 +2033,7 @@ JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_bmCapabilities__
 JNIEXPORT jshort JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_wWidth__(JNIEnv* env, jobject obj) {
     ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1521,7 +2046,7 @@ JNIEXPORT jshort JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_wWidth__(JNIEnv
 JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_wWidth__S(JNIEnv* env, jobject obj, jshort arg0) {
     ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1533,7 +2058,7 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_wWidth__S(JNIE
 JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_wHeight__S(JNIEnv* env, jobject obj, jshort arg0) {
     ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1545,7 +2070,7 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_wHeight__S(JNI
 JNIEXPORT jshort JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_wHeight__(JNIEnv* env, jobject obj) {
     ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1558,7 +2083,7 @@ JNIEXPORT jshort JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_wHeight__(JNIEn
 JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwMinBitRate__I(JNIEnv* env, jobject obj, jint arg0) {
     ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1570,7 +2095,7 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwMinBitRate__
 JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwMinBitRate__(JNIEnv* env, jobject obj) {
     ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1583,7 +2108,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwMinBitRate__(JN
 JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwMaxBitRate__I(JNIEnv* env, jobject obj, jint arg0) {
     ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1595,7 +2120,7 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwMaxBitRate__
 JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwMaxBitRate__(JNIEnv* env, jobject obj) {
     ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1605,10 +2130,22 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwMaxBitRate__(JN
     rarg = (jint)rval;
     return rarg;
 }
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwMaxVideoFrameBufferSize__I(JNIEnv* env, jobject obj, jint arg0) {
+    ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->dwMaxVideoFrameBufferSize = (uint32_t)arg0;
+    return rarg;
+}
 JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwMaxVideoFrameBufferSize__(JNIEnv* env, jobject obj) {
     ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1618,22 +2155,10 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwMaxVideoFrameBu
     rarg = (jint)rval;
     return rarg;
 }
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwMaxVideoFrameBufferSize__I(JNIEnv* env, jobject obj, jint arg0) {
-    ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->dwMaxVideoFrameBufferSize = (uint32_t)arg0;
-    return rarg;
-}
 JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwDefaultFrameInterval__I(JNIEnv* env, jobject obj, jint arg0) {
     ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1645,7 +2170,7 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwDefaultFrame
 JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwDefaultFrameInterval__(JNIEnv* env, jobject obj) {
     ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1655,22 +2180,10 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwDefaultFrameInt
     rarg = (jint)rval;
     return rarg;
 }
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwMinFrameInterval__I(JNIEnv* env, jobject obj, jint arg0) {
-    ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->dwMinFrameInterval = (uint32_t)arg0;
-    return rarg;
-}
 JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwMinFrameInterval__(JNIEnv* env, jobject obj) {
     ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1680,10 +2193,22 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwMinFrameInterva
     rarg = (jint)rval;
     return rarg;
 }
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwMinFrameInterval__I(JNIEnv* env, jobject obj, jint arg0) {
+    ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->dwMinFrameInterval = (uint32_t)arg0;
+    return rarg;
+}
 JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwMaxFrameInterval__I(JNIEnv* env, jobject obj, jint arg0) {
     ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1695,7 +2220,7 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwMaxFrameInte
 JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwMaxFrameInterval__(JNIEnv* env, jobject obj) {
     ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1705,22 +2230,10 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwMaxFrameInterva
     rarg = (jint)rval;
     return rarg;
 }
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwFrameIntervalStep__I(JNIEnv* env, jobject obj, jint arg0) {
-    ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->dwFrameIntervalStep = (uint32_t)arg0;
-    return rarg;
-}
 JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwFrameIntervalStep__(JNIEnv* env, jobject obj) {
     ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1730,10 +2243,22 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwFrameIntervalSt
     rarg = (jint)rval;
     return rarg;
 }
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwFrameIntervalStep__I(JNIEnv* env, jobject obj, jint arg0) {
+    ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->dwFrameIntervalStep = (uint32_t)arg0;
+    return rarg;
+}
 JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_bFrameIntervalType__(JNIEnv* env, jobject obj) {
     ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1746,7 +2271,7 @@ JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_bFrameIntervalTy
 JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_bFrameIntervalType__B(JNIEnv* env, jobject obj, jbyte arg0) {
     ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1758,7 +2283,7 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_bFrameInterval
 JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwBytesPerLine__(JNIEnv* env, jobject obj) {
     ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1771,7 +2296,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwBytesPerLine__(
 JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwBytesPerLine__I(JNIEnv* env, jobject obj, jint arg0) {
     ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1783,7 +2308,7 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_dwBytesPerLine
 JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_intervals__Ljava_nio_IntBuffer_2(JNIEnv* env, jobject obj, jobject arg0) {
     ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1810,7 +2335,7 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_intervals__Lja
 JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_intervals__(JNIEnv* env, jobject obj) {
     ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -1825,370 +2350,76 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_intervals__(JN
     }
     return rarg;
 }
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_parent__(JNIEnv* env, jobject obj) {
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_bDescriptorSubtype__I(JNIEnv* env, jobject obj, jint arg0) {
     ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = NULL;
-    ::uvc_format_desc* rptr;
-    rptr = ptr->parent;
-    if (rptr != NULL) {
-        rarg = JavaCPP_createPointer(env, 9);
-        if (rarg != NULL) {
-            env->SetLongField(rarg, JavaCPP_addressFID, ptr_to_jlong(rptr));
-        }
-    }
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_parent__Lio_vacco_uvc_Uvc_00024UVCFormatDesc_2(JNIEnv* env, jobject obj, jobject arg0) {
-    ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    ::uvc_format_desc* ptr0 = arg0 == NULL ? NULL : (::uvc_format_desc*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
-    jlong position0 = arg0 == NULL ? 0 : env->GetLongField(arg0, JavaCPP_positionFID);
-    ptr0 += position0;
-    jobject rarg = obj;
-    ptr->parent = ptr0;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_next__Lio_vacco_uvc_Uvc_00024UVCFrameDesc_2(JNIEnv* env, jobject obj, jobject arg0) {
-    ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    ::uvc_frame_desc* ptr0 = arg0 == NULL ? NULL : (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
-    jlong position0 = arg0 == NULL ? 0 : env->GetLongField(arg0, JavaCPP_positionFID);
-    ptr0 += position0;
-    jobject rarg = obj;
-    ptr->next = ptr0;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_next__(JNIEnv* env, jobject obj) {
-    ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = NULL;
-    ::uvc_frame_desc* rptr;
-    rptr = ptr->next;
-    if (rptr == ptr) {
-        rarg = obj;
-    } else if (rptr != NULL) {
-        rarg = JavaCPP_createPointer(env, 13);
-        if (rarg != NULL) {
-            env->SetLongField(rarg, JavaCPP_addressFID, ptr_to_jlong(rptr));
-        }
-    }
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_prev__(JNIEnv* env, jobject obj) {
-    ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = NULL;
-    ::uvc_frame_desc* rptr;
-    rptr = ptr->prev;
-    if (rptr == ptr) {
-        rarg = obj;
-    } else if (rptr != NULL) {
-        rarg = JavaCPP_createPointer(env, 13);
-        if (rarg != NULL) {
-            env->SetLongField(rarg, JavaCPP_addressFID, ptr_to_jlong(rptr));
-        }
-    }
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_prev__Lio_vacco_uvc_Uvc_00024UVCFrameDesc_2(JNIEnv* env, jobject obj, jobject arg0) {
-    ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    ::uvc_frame_desc* ptr0 = arg0 == NULL ? NULL : (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
-    jlong position0 = arg0 == NULL ? 0 : env->GetLongField(arg0, JavaCPP_positionFID);
-    ptr0 += position0;
-    jobject rarg = obj;
-    ptr->prev = ptr0;
-    return rarg;
-}
-JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_allocate(JNIEnv* env, jobject obj) {
-    jthrowable exc = NULL;
-    try {
-        ::uvc_frame_desc* rptr = new ::uvc_frame_desc();
-        jlong rcapacity = 1;
-        JavaCPP_initPointer(env, obj, rptr, rcapacity, rptr, &JavaCPP_io_vacco_uvc_Uvc_00024UVCFrameDesc_deallocate);
-    } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
-    }
-
-    if (exc != NULL) {
-        env->Throw(exc);
-    }
-}
-
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_sequence__I(JNIEnv* env, jobject obj, jint arg0) {
-    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
     ptr += position;
     jobject rarg = obj;
-    ptr->sequence = (uint32_t)arg0;
+    ptr->bDescriptorSubtype = (uvc_vs_desc_subtype)arg0;
     return rarg;
 }
-JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_sequence__(JNIEnv* env, jobject obj) {
-    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_bDescriptorSubtype__(JNIEnv* env, jobject obj) {
+    ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
     ptr += position;
     jint rarg = 0;
-    uint32_t rval = (uint32_t)ptr->sequence;
+    uvc_vs_desc_subtype rval = (uvc_vs_desc_subtype)ptr->bDescriptorSubtype;
     rarg = (jint)rval;
     return rarg;
 }
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_step__I(JNIEnv* env, jobject obj, jint arg0) {
-    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_bFrameIndex__(JNIEnv* env, jobject obj) {
+    ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->step = (size_t)arg0;
-    return rarg;
-}
-JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_step__(JNIEnv* env, jobject obj) {
-    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jint rarg = 0;
-    size_t rval = (size_t)ptr->step;
-    rarg = (jint)rval;
-    return rarg;
-}
-JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_allocateArray(JNIEnv* env, jobject obj, jint arg0) {
-    jthrowable exc = NULL;
-    try {
-        ::uvc_frame* rptr = new ::uvc_frame[arg0];
-        jlong rcapacity = arg0;
-        JavaCPP_initPointer(env, obj, rptr, rcapacity, rptr, &JavaCPP_io_vacco_uvc_Uvc_00024UVCFrame_deallocateArray);
-    } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
-    }
-
-    if (exc != NULL) {
-        env->Throw(exc);
-    }
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_data_1bytes__I(JNIEnv* env, jobject obj, jint arg0) {
-    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->data_bytes = (size_t)arg0;
-    return rarg;
-}
-JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_data_1bytes__(JNIEnv* env, jobject obj) {
-    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jint rarg = 0;
-    size_t rval = (size_t)ptr->data_bytes;
-    rarg = (jint)rval;
-    return rarg;
-}
-JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_width__(JNIEnv* env, jobject obj) {
-    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jint rarg = 0;
-    uint32_t rval = (uint32_t)ptr->width;
-    rarg = (jint)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_width__I(JNIEnv* env, jobject obj, jint arg0) {
-    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->width = (uint32_t)arg0;
-    return rarg;
-}
-JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_height__(JNIEnv* env, jobject obj) {
-    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jint rarg = 0;
-    uint32_t rval = (uint32_t)ptr->height;
-    rarg = (jint)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_height__I(JNIEnv* env, jobject obj, jint arg0) {
-    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->height = (uint32_t)arg0;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_frame_1format__I(JNIEnv* env, jobject obj, jint arg0) {
-    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->frame_format = (uvc_frame_format)arg0;
-    return rarg;
-}
-JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_frame_1format__(JNIEnv* env, jobject obj) {
-    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jint rarg = 0;
-    uvc_frame_format rval = (uvc_frame_format)ptr->frame_format;
-    rarg = (jint)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_capture_1time__(JNIEnv* env, jobject obj) {
-    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = NULL;
-    ::timeval* rptr;
-    jthrowable exc = NULL;
-    try {
-        rptr = new ::timeval(ptr->capture_time);
-        jlong rcapacity = 1;
-        void* rowner = (void*)rptr;
-        void (*deallocator)(void*) = &JavaCPP_io_vacco_uvc_Uvc_00024TimeVal_deallocate;
-        if (rptr != NULL) {
-            rarg = JavaCPP_createPointer(env, 15);
-            if (rarg != NULL) {
-                JavaCPP_initPointer(env, rarg, rptr, rcapacity, rowner, deallocator);
-            }
-        }
-    } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
-    }
-
-    if (exc != NULL) {
-        env->Throw(exc);
-    }
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_capture_1time__Lio_vacco_uvc_Uvc_00024TimeVal_2(JNIEnv* env, jobject obj, jobject arg0) {
-    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    ::timeval* ptr0 = arg0 == NULL ? NULL : (::timeval*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
-    if (ptr0 == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "Pointer address of argument 0 is NULL.");
-        return 0;
-    }
-    jlong position0 = arg0 == NULL ? 0 : env->GetLongField(arg0, JavaCPP_positionFID);
-    ptr0 += position0;
-    jobject rarg = obj;
-    ptr->capture_time = *ptr0;
-    return rarg;
-}
-JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_library_1owns_1data__(JNIEnv* env, jobject obj) {
-    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
     ptr += position;
     jbyte rarg = 0;
-    uint8_t rval = (uint8_t)ptr->library_owns_data;
+    uint8_t rval = (uint8_t)ptr->bFrameIndex;
     rarg = (jbyte)rval;
     return rarg;
 }
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_library_1owns_1data__B(JNIEnv* env, jobject obj, jbyte arg0) {
-    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrameDesc_bFrameIndex__B(JNIEnv* env, jobject obj, jbyte arg0) {
+    ::uvc_frame_desc* ptr = (::uvc_frame_desc*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
     ptr += position;
     jobject rarg = obj;
-    ptr->library_owns_data = (uint8_t)arg0;
+    ptr->bFrameIndex = (uint8_t)arg0;
+    return rarg;
+}
+
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_data__Lorg_bytedeco_javacpp_Pointer_2(JNIEnv* env, jobject obj, jobject arg0) {
+    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    char* ptr0 = arg0 == NULL ? NULL : (char*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
+    jlong position0 = arg0 == NULL ? 0 : env->GetLongField(arg0, JavaCPP_positionFID);
+    ptr0 += position0;
+    jobject rarg = obj;
+    ptr->data = ptr0;
     return rarg;
 }
 JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_data__(JNIEnv* env, jobject obj) {
     ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -2204,25 +2435,23 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_data__(JNIEnv* env
     }
     return rarg;
 }
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_data__Lorg_bytedeco_javacpp_Pointer_2(JNIEnv* env, jobject obj, jobject arg0) {
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_source__Lio_vacco_uvc_Uvc_00024UVCDeviceHandle_2(JNIEnv* env, jobject obj, jobject arg0) {
     ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
     ptr += position;
-    char* ptr0 = arg0 == NULL ? NULL : (char*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
-    jlong position0 = arg0 == NULL ? 0 : env->GetLongField(arg0, JavaCPP_positionFID);
-    ptr0 += position0;
+    ::uvc_device_handle* ptr0 = arg0 == NULL ? NULL : (::uvc_device_handle*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
     jobject rarg = obj;
-    ptr->data = ptr0;
+    ptr->source = ptr0;
     return rarg;
 }
 JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_source__(JNIEnv* env, jobject obj) {
     ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -2238,17 +2467,29 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_source__(JNIEnv* e
     }
     return rarg;
 }
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_source__Lio_vacco_uvc_Uvc_00024UVCDeviceHandle_2(JNIEnv* env, jobject obj, jobject arg0) {
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_step__I(JNIEnv* env, jobject obj, jint arg0) {
     ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
     ptr += position;
-    ::uvc_device_handle* ptr0 = arg0 == NULL ? NULL : (::uvc_device_handle*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
     jobject rarg = obj;
-    ptr->source = ptr0;
+    ptr->step = (size_t)arg0;
+    return rarg;
+}
+JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_step__(JNIEnv* env, jobject obj) {
+    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jint rarg = 0;
+    size_t rval = (size_t)ptr->step;
+    rarg = (jint)rval;
     return rarg;
 }
 JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_allocate(JNIEnv* env, jobject obj) {
@@ -2258,14 +2499,242 @@ JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_allocate(JNIEnv* env,
         jlong rcapacity = 1;
         JavaCPP_initPointer(env, obj, rptr, rcapacity, rptr, &JavaCPP_io_vacco_uvc_Uvc_00024UVCFrame_deallocate);
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
         env->Throw(exc);
     }
 }
+JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_sequence__(JNIEnv* env, jobject obj) {
+    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jint rarg = 0;
+    uint32_t rval = (uint32_t)ptr->sequence;
+    rarg = (jint)rval;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_sequence__I(JNIEnv* env, jobject obj, jint arg0) {
+    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->sequence = (uint32_t)arg0;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_width__I(JNIEnv* env, jobject obj, jint arg0) {
+    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->width = (uint32_t)arg0;
+    return rarg;
+}
+JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_width__(JNIEnv* env, jobject obj) {
+    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jint rarg = 0;
+    uint32_t rval = (uint32_t)ptr->width;
+    rarg = (jint)rval;
+    return rarg;
+}
+JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_allocateArray(JNIEnv* env, jobject obj, jint arg0) {
+    jthrowable exc = NULL;
+    try {
+        ::uvc_frame* rptr = new ::uvc_frame[arg0];
+        jlong rcapacity = arg0;
+        JavaCPP_initPointer(env, obj, rptr, rcapacity, rptr, &JavaCPP_io_vacco_uvc_Uvc_00024UVCFrame_deallocateArray);
+    } catch (...) {
+        exc = JavaCPP_handleException(env, 8);
+    }
 
+    if (exc != NULL) {
+        env->Throw(exc);
+    }
+}
+JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_data_1bytes__(JNIEnv* env, jobject obj) {
+    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jint rarg = 0;
+    size_t rval = (size_t)ptr->data_bytes;
+    rarg = (jint)rval;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_data_1bytes__I(JNIEnv* env, jobject obj, jint arg0) {
+    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->data_bytes = (size_t)arg0;
+    return rarg;
+}
+JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_height__(JNIEnv* env, jobject obj) {
+    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jint rarg = 0;
+    uint32_t rval = (uint32_t)ptr->height;
+    rarg = (jint)rval;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_height__I(JNIEnv* env, jobject obj, jint arg0) {
+    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->height = (uint32_t)arg0;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_frame_1format__I(JNIEnv* env, jobject obj, jint arg0) {
+    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->frame_format = (uvc_frame_format)arg0;
+    return rarg;
+}
+JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_frame_1format__(JNIEnv* env, jobject obj) {
+    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jint rarg = 0;
+    uvc_frame_format rval = (uvc_frame_format)ptr->frame_format;
+    rarg = (jint)rval;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_capture_1time__(JNIEnv* env, jobject obj) {
+    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = NULL;
+    ::timeval* rptr;
+    jthrowable exc = NULL;
+    try {
+        rptr = new ::timeval(ptr->capture_time);
+        jlong rcapacity = 1;
+        void* rowner = (void*)rptr;
+        void (*deallocator)(void*) = &JavaCPP_io_vacco_uvc_Uvc_00024TimeVal_deallocate;
+        if (rptr != NULL) {
+            rarg = JavaCPP_createPointer(env, 17);
+            if (rarg != NULL) {
+                JavaCPP_initPointer(env, rarg, rptr, rcapacity, rowner, deallocator);
+            }
+        }
+    } catch (...) {
+        exc = JavaCPP_handleException(env, 8);
+    }
+
+    if (exc != NULL) {
+        env->Throw(exc);
+    }
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_capture_1time__Lio_vacco_uvc_Uvc_00024TimeVal_2(JNIEnv* env, jobject obj, jobject arg0) {
+    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    ::timeval* ptr0 = arg0 == NULL ? NULL : (::timeval*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
+    if (ptr0 == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "Pointer address of argument 0 is NULL.");
+        return 0;
+    }
+    jlong position0 = arg0 == NULL ? 0 : env->GetLongField(arg0, JavaCPP_positionFID);
+    ptr0 += position0;
+    jobject rarg = obj;
+    ptr->capture_time = *ptr0;
+    return rarg;
+}
+JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_library_1owns_1data__(JNIEnv* env, jobject obj) {
+    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jbyte rarg = 0;
+    uint8_t rval = (uint8_t)ptr->library_owns_data;
+    rarg = (jbyte)rval;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCFrame_library_1owns_1data__B(JNIEnv* env, jobject obj, jbyte arg0) {
+    ::uvc_frame* ptr = (::uvc_frame*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->library_owns_data = (uint8_t)arg0;
+    return rarg;
+}
+
+JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024TimeVal_allocate(JNIEnv* env, jobject obj) {
+    jthrowable exc = NULL;
+    try {
+        ::timeval* rptr = new ::timeval();
+        jlong rcapacity = 1;
+        JavaCPP_initPointer(env, obj, rptr, rcapacity, rptr, &JavaCPP_io_vacco_uvc_Uvc_00024TimeVal_deallocate);
+    } catch (...) {
+        exc = JavaCPP_handleException(env, 8);
+    }
+
+    if (exc != NULL) {
+        env->Throw(exc);
+    }
+}
 JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024TimeVal_allocateArray(JNIEnv* env, jobject obj, jint arg0) {
     jthrowable exc = NULL;
     try {
@@ -2273,29 +2742,17 @@ JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024TimeVal_allocateArray(JNIEnv* 
         jlong rcapacity = arg0;
         JavaCPP_initPointer(env, obj, rptr, rcapacity, rptr, &JavaCPP_io_vacco_uvc_Uvc_00024TimeVal_deallocateArray);
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
         env->Throw(exc);
     }
 }
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024TimeVal_tv_1sec__J(JNIEnv* env, jobject obj, jlong arg0) {
-    ::timeval* ptr = (::timeval*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->tv_sec = arg0;
-    return rarg;
-}
 JNIEXPORT jlong JNICALL Java_io_vacco_uvc_Uvc_00024TimeVal_tv_1sec__(JNIEnv* env, jobject obj) {
     ::timeval* ptr = (::timeval*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -2305,10 +2762,34 @@ JNIEXPORT jlong JNICALL Java_io_vacco_uvc_Uvc_00024TimeVal_tv_1sec__(JNIEnv* env
     rarg = (jlong)rval;
     return rarg;
 }
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024TimeVal_tv_1sec__J(JNIEnv* env, jobject obj, jlong arg0) {
+    ::timeval* ptr = (::timeval*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->tv_sec = arg0;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024TimeVal_tv_1usec__J(JNIEnv* env, jobject obj, jlong arg0) {
+    ::timeval* ptr = (::timeval*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->tv_usec = arg0;
+    return rarg;
+}
 JNIEXPORT jlong JNICALL Java_io_vacco_uvc_Uvc_00024TimeVal_tv_1usec__(JNIEnv* env, jobject obj) {
     ::timeval* ptr = (::timeval*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -2318,487 +2799,55 @@ JNIEXPORT jlong JNICALL Java_io_vacco_uvc_Uvc_00024TimeVal_tv_1usec__(JNIEnv* en
     rarg = (jlong)rval;
     return rarg;
 }
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024TimeVal_tv_1usec__J(JNIEnv* env, jobject obj, jlong arg0) {
-    ::timeval* ptr = (::timeval*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_product__(JNIEnv* env, jobject obj) {
+    ::uvc_device_descriptor* ptr = (::uvc_device_descriptor*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
     ptr += position;
-    jobject rarg = obj;
-    ptr->tv_usec = arg0;
+    jobject rarg = NULL;
+    char* rptr;
+    rptr = (char*)ptr->product;
+    if (rptr != NULL) {
+        rarg = JavaCPP_createPointer(env, 14);
+        if (rarg != NULL) {
+            env->SetLongField(rarg, JavaCPP_addressFID, ptr_to_jlong(rptr));
+        }
+    }
     return rarg;
 }
-JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024TimeVal_allocate(JNIEnv* env, jobject obj) {
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_product__Lorg_bytedeco_javacpp_BytePointer_2(JNIEnv* env, jobject obj, jobject arg0) {
+    ::uvc_device_descriptor* ptr = (::uvc_device_descriptor*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    signed char* ptr0 = arg0 == NULL ? NULL : (signed char*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
+    jlong position0 = arg0 == NULL ? 0 : env->GetLongField(arg0, JavaCPP_positionFID);
+    ptr0 += position0;
+    jobject rarg = obj;
+    ptr->product = (char*)ptr0;
+    return rarg;
+}
+JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_allocate(JNIEnv* env, jobject obj) {
     jthrowable exc = NULL;
     try {
-        ::timeval* rptr = new ::timeval();
+        ::uvc_device_descriptor* rptr = new ::uvc_device_descriptor();
         jlong rcapacity = 1;
-        JavaCPP_initPointer(env, obj, rptr, rcapacity, rptr, &JavaCPP_io_vacco_uvc_Uvc_00024TimeVal_deallocate);
+        JavaCPP_initPointer(env, obj, rptr, rcapacity, rptr, &JavaCPP_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_deallocate);
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
         env->Throw(exc);
     }
 }
-
-JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_allocateArray(JNIEnv* env, jobject obj, jint arg0) {
-    jthrowable exc = NULL;
-    try {
-        ::uvc_stream_ctrl_t* rptr = new ::uvc_stream_ctrl_t[arg0];
-        jlong rcapacity = arg0;
-        JavaCPP_initPointer(env, obj, rptr, rcapacity, rptr, &JavaCPP_io_vacco_uvc_Uvc_00024UVCStreamCtrl_deallocateArray);
-    } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
-    }
-
-    if (exc != NULL) {
-        env->Throw(exc);
-    }
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bFrameIndex__B(JNIEnv* env, jobject obj, jbyte arg0) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->bFrameIndex = (uint8_t)arg0;
-    return rarg;
-}
-JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bFrameIndex__(JNIEnv* env, jobject obj) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jbyte rarg = 0;
-    uint8_t rval = (uint8_t)ptr->bFrameIndex;
-    rarg = (jbyte)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bmHint__S(JNIEnv* env, jobject obj, jshort arg0) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->bmHint = (uint16_t)arg0;
-    return rarg;
-}
-JNIEXPORT jshort JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bmHint__(JNIEnv* env, jobject obj) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jshort rarg = 0;
-    uint16_t rval = (uint16_t)ptr->bmHint;
-    rarg = (jshort)rval;
-    return rarg;
-}
-JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_dwFrameInterval__(JNIEnv* env, jobject obj) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jint rarg = 0;
-    uint32_t rval = (uint32_t)ptr->dwFrameInterval;
-    rarg = (jint)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_dwFrameInterval__I(JNIEnv* env, jobject obj, jint arg0) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->dwFrameInterval = (uint32_t)arg0;
-    return rarg;
-}
-JNIEXPORT jshort JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_wKeyFrameRate__(JNIEnv* env, jobject obj) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jshort rarg = 0;
-    uint16_t rval = (uint16_t)ptr->wKeyFrameRate;
-    rarg = (jshort)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_wKeyFrameRate__S(JNIEnv* env, jobject obj, jshort arg0) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->wKeyFrameRate = (uint16_t)arg0;
-    return rarg;
-}
-JNIEXPORT jshort JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_wPFrameRate__(JNIEnv* env, jobject obj) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jshort rarg = 0;
-    uint16_t rval = (uint16_t)ptr->wPFrameRate;
-    rarg = (jshort)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_wPFrameRate__S(JNIEnv* env, jobject obj, jshort arg0) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->wPFrameRate = (uint16_t)arg0;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_wCompQuality__S(JNIEnv* env, jobject obj, jshort arg0) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->wCompQuality = (uint16_t)arg0;
-    return rarg;
-}
-JNIEXPORT jshort JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_wCompQuality__(JNIEnv* env, jobject obj) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jshort rarg = 0;
-    uint16_t rval = (uint16_t)ptr->wCompQuality;
-    rarg = (jshort)rval;
-    return rarg;
-}
-JNIEXPORT jshort JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_wCompWindowSize__(JNIEnv* env, jobject obj) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jshort rarg = 0;
-    uint16_t rval = (uint16_t)ptr->wCompWindowSize;
-    rarg = (jshort)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_wCompWindowSize__S(JNIEnv* env, jobject obj, jshort arg0) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->wCompWindowSize = (uint16_t)arg0;
-    return rarg;
-}
-JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_wDelay__(JNIEnv* env, jobject obj) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jint rarg = 0;
-    uint32_t rval = (uint32_t)ptr->wDelay;
-    rarg = (jint)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_wDelay__I(JNIEnv* env, jobject obj, jint arg0) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->wDelay = (uint32_t)arg0;
-    return rarg;
-}
-JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_dwMaxVideoFrameSize__(JNIEnv* env, jobject obj) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jint rarg = 0;
-    uint32_t rval = (uint32_t)ptr->dwMaxVideoFrameSize;
-    rarg = (jint)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_dwMaxVideoFrameSize__I(JNIEnv* env, jobject obj, jint arg0) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->dwMaxVideoFrameSize = (uint32_t)arg0;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_dwMaxPayloadTransferSize__I(JNIEnv* env, jobject obj, jint arg0) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->dwMaxPayloadTransferSize = (uint32_t)arg0;
-    return rarg;
-}
-JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_dwMaxPayloadTransferSize__(JNIEnv* env, jobject obj) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jint rarg = 0;
-    uint32_t rval = (uint32_t)ptr->dwMaxPayloadTransferSize;
-    rarg = (jint)rval;
-    return rarg;
-}
-JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_dwClockFrequency__(JNIEnv* env, jobject obj) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jint rarg = 0;
-    uint32_t rval = (uint32_t)ptr->dwClockFrequency;
-    rarg = (jint)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_dwClockFrequency__I(JNIEnv* env, jobject obj, jint arg0) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->dwClockFrequency = (uint32_t)arg0;
-    return rarg;
-}
-JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bmFramingInfo__(JNIEnv* env, jobject obj) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jbyte rarg = 0;
-    uint8_t rval = (uint8_t)ptr->bmFramingInfo;
-    rarg = (jbyte)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bmFramingInfo__B(JNIEnv* env, jobject obj, jbyte arg0) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->bmFramingInfo = (uint8_t)arg0;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bPreferredVersion__B(JNIEnv* env, jobject obj, jbyte arg0) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->bPreferredVersion = (uint8_t)arg0;
-    return rarg;
-}
-JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bPreferredVersion__(JNIEnv* env, jobject obj) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jbyte rarg = 0;
-    uint8_t rval = (uint8_t)ptr->bPreferredVersion;
-    rarg = (jbyte)rval;
-    return rarg;
-}
-JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bMinVersion__(JNIEnv* env, jobject obj) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jbyte rarg = 0;
-    uint8_t rval = (uint8_t)ptr->bMinVersion;
-    rarg = (jbyte)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bMinVersion__B(JNIEnv* env, jobject obj, jbyte arg0) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->bMinVersion = (uint8_t)arg0;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bMaxVersion__B(JNIEnv* env, jobject obj, jbyte arg0) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->bMaxVersion = (uint8_t)arg0;
-    return rarg;
-}
-JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bMaxVersion__(JNIEnv* env, jobject obj) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jbyte rarg = 0;
-    uint8_t rval = (uint8_t)ptr->bMaxVersion;
-    rarg = (jbyte)rval;
-    return rarg;
-}
-JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bInterfaceNumber__(JNIEnv* env, jobject obj) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jbyte rarg = 0;
-    uint8_t rval = (uint8_t)ptr->bInterfaceNumber;
-    rarg = (jbyte)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bInterfaceNumber__B(JNIEnv* env, jobject obj, jbyte arg0) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->bInterfaceNumber = (uint8_t)arg0;
-    return rarg;
-}
-JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bFormatIndex__(JNIEnv* env, jobject obj) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jbyte rarg = 0;
-    uint8_t rval = (uint8_t)ptr->bFormatIndex;
-    rarg = (jbyte)rval;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_bFormatIndex__B(JNIEnv* env, jobject obj, jbyte arg0) {
-    ::uvc_stream_ctrl_t* ptr = (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->bFormatIndex = (uint8_t)arg0;
-    return rarg;
-}
-JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024UVCStreamCtrl_allocate(JNIEnv* env, jobject obj) {
-    jthrowable exc = NULL;
-    try {
-        ::uvc_stream_ctrl_t* rptr = new ::uvc_stream_ctrl_t();
-        jlong rcapacity = 1;
-        JavaCPP_initPointer(env, obj, rptr, rcapacity, rptr, &JavaCPP_io_vacco_uvc_Uvc_00024UVCStreamCtrl_deallocate);
-    } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
-    }
-
-    if (exc != NULL) {
-        env->Throw(exc);
-    }
-}
-
 JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_allocateArray(JNIEnv* env, jobject obj, jint arg0) {
     jthrowable exc = NULL;
     try {
@@ -2806,29 +2855,17 @@ JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_allocateAr
         jlong rcapacity = arg0;
         JavaCPP_initPointer(env, obj, rptr, rcapacity, rptr, &JavaCPP_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_deallocateArray);
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
         env->Throw(exc);
     }
 }
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_idVendor__S(JNIEnv* env, jobject obj, jshort arg0) {
-    ::uvc_device_descriptor* ptr = (::uvc_device_descriptor*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->idVendor = (uint16_t)arg0;
-    return rarg;
-}
 JNIEXPORT jshort JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_idVendor__(JNIEnv* env, jobject obj) {
     ::uvc_device_descriptor* ptr = (::uvc_device_descriptor*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -2838,10 +2875,34 @@ JNIEXPORT jshort JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_idVendor
     rarg = (jshort)rval;
     return rarg;
 }
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_idVendor__S(JNIEnv* env, jobject obj, jshort arg0) {
+    ::uvc_device_descriptor* ptr = (::uvc_device_descriptor*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->idVendor = (uint16_t)arg0;
+    return rarg;
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_idProduct__S(JNIEnv* env, jobject obj, jshort arg0) {
+    ::uvc_device_descriptor* ptr = (::uvc_device_descriptor*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
+    if (ptr == NULL) {
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
+        return 0;
+    }
+    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
+    ptr += position;
+    jobject rarg = obj;
+    ptr->idProduct = (uint16_t)arg0;
+    return rarg;
+}
 JNIEXPORT jshort JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_idProduct__(JNIEnv* env, jobject obj) {
     ::uvc_device_descriptor* ptr = (::uvc_device_descriptor*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -2851,22 +2912,10 @@ JNIEXPORT jshort JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_idProduc
     rarg = (jshort)rval;
     return rarg;
 }
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_idProduct__S(JNIEnv* env, jobject obj, jshort arg0) {
-    ::uvc_device_descriptor* ptr = (::uvc_device_descriptor*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = obj;
-    ptr->idProduct = (uint16_t)arg0;
-    return rarg;
-}
 JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_bcdUVC__S(JNIEnv* env, jobject obj, jshort arg0) {
     ::uvc_device_descriptor* ptr = (::uvc_device_descriptor*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -2878,7 +2927,7 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_bcdUVC_
 JNIEXPORT jshort JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_bcdUVC__(JNIEnv* env, jobject obj) {
     ::uvc_device_descriptor* ptr = (::uvc_device_descriptor*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -2891,7 +2940,7 @@ JNIEXPORT jshort JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_bcdUVC__
 JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_serialNumber__(JNIEnv* env, jobject obj) {
     ::uvc_device_descriptor* ptr = (::uvc_device_descriptor*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -2900,7 +2949,7 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_serialN
     char* rptr;
     rptr = (char*)ptr->serialNumber;
     if (rptr != NULL) {
-        rarg = JavaCPP_createPointer(env, 12);
+        rarg = JavaCPP_createPointer(env, 14);
         if (rarg != NULL) {
             env->SetLongField(rarg, JavaCPP_addressFID, ptr_to_jlong(rptr));
         }
@@ -2910,7 +2959,7 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_serialN
 JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_serialNumber__Lorg_bytedeco_javacpp_BytePointer_2(JNIEnv* env, jobject obj, jobject arg0) {
     ::uvc_device_descriptor* ptr = (::uvc_device_descriptor*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -2925,7 +2974,7 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_serialN
 JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_manufacturer__Lorg_bytedeco_javacpp_BytePointer_2(JNIEnv* env, jobject obj, jobject arg0) {
     ::uvc_device_descriptor* ptr = (::uvc_device_descriptor*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -2940,7 +2989,7 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_manufac
 JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_manufacturer__(JNIEnv* env, jobject obj) {
     ::uvc_device_descriptor* ptr = (::uvc_device_descriptor*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
     if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
+        env->ThrowNew(JavaCPP_getClass(env, 9), "This pointer address is NULL.");
         return 0;
     }
     jlong position = env->GetLongField(obj, JavaCPP_positionFID);
@@ -2949,264 +2998,44 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_manufac
     char* rptr;
     rptr = (char*)ptr->manufacturer;
     if (rptr != NULL) {
-        rarg = JavaCPP_createPointer(env, 12);
+        rarg = JavaCPP_createPointer(env, 14);
         if (rarg != NULL) {
             env->SetLongField(rarg, JavaCPP_addressFID, ptr_to_jlong(rptr));
         }
     }
     return rarg;
 }
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_product__Lorg_bytedeco_javacpp_BytePointer_2(JNIEnv* env, jobject obj, jobject arg0) {
-    ::uvc_device_descriptor* ptr = (::uvc_device_descriptor*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    signed char* ptr0 = arg0 == NULL ? NULL : (signed char*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
-    jlong position0 = arg0 == NULL ? 0 : env->GetLongField(arg0, JavaCPP_positionFID);
-    ptr0 += position0;
-    jobject rarg = obj;
-    ptr->product = (char*)ptr0;
-    return rarg;
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_product__(JNIEnv* env, jobject obj) {
-    ::uvc_device_descriptor* ptr = (::uvc_device_descriptor*)jlong_to_ptr(env->GetLongField(obj, JavaCPP_addressFID));
-    if (ptr == NULL) {
-        env->ThrowNew(JavaCPP_getClass(env, 11), "This pointer address is NULL.");
-        return 0;
-    }
-    jlong position = env->GetLongField(obj, JavaCPP_positionFID);
-    ptr += position;
-    jobject rarg = NULL;
-    char* rptr;
-    rptr = (char*)ptr->product;
-    if (rptr != NULL) {
-        rarg = JavaCPP_createPointer(env, 12);
-        if (rarg != NULL) {
-            env->SetLongField(rarg, JavaCPP_addressFID, ptr_to_jlong(rptr));
+
+
+
+
+
+JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1white_1balance_1temperature(JNIEnv* env, jclass cls, jobject arg0, jobject arg1, jint arg2) {
+    ::uvc_device_handle* ptr0 = arg0 == NULL ? NULL : (::uvc_device_handle*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
+    short* ptr1 = arg1 == NULL ? NULL : (short*)env->GetDirectBufferAddress(arg1);
+    jshortArray arr1 = NULL;
+    jlong offset1 = 0;
+    if (arg1 != NULL && ptr1 == NULL) {
+        arr1 = (jshortArray)env->CallObjectMethod(arg1, JavaCPP_arrayMID);
+        offset1 = env->CallIntMethod(arg1, JavaCPP_arrayOffsetMID);
+        if (env->ExceptionOccurred() != NULL) {
+            return 0;
+        } else {
+            ptr1 = arr1 == NULL ? NULL : env->GetShortArrayElements(arr1, NULL) + offset1;
         }
     }
-    return rarg;
-}
-JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_allocate(JNIEnv* env, jobject obj) {
-    jthrowable exc = NULL;
-    try {
-        ::uvc_device_descriptor* rptr = new ::uvc_device_descriptor();
-        jlong rcapacity = 1;
-        JavaCPP_initPointer(env, obj, rptr, rcapacity, rptr, &JavaCPP_io_vacco_uvc_Uvc_00024UVCDeviceDescriptor_deallocate);
-    } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
-    }
-
-    if (exc != NULL) {
-        env->Throw(exc);
-    }
-}
-
-
-
-
-
-
-JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1init(JNIEnv* env, jclass cls, jobject arg0, jobject arg1) {
-    ::uvc_context* ptr0 = arg0 == NULL ? NULL : (::uvc_context*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
-    ::libusb_context* ptr1 = arg1 == NULL ? NULL : (::libusb_context*)jlong_to_ptr(env->GetLongField(arg1, JavaCPP_addressFID));
-    jint rarg = 0;
-    jthrowable exc = NULL;
-    try {
-        int rval = uvc_init((arg0 == NULL ? NULL : &ptr0), ptr1);
-        rarg = (jint)rval;
-    } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
-    }
-
-    if (arg0 != NULL) env->SetLongField(arg0, JavaCPP_addressFID, ptr_to_jlong(ptr0));
-    if (exc != NULL) {
-        env->Throw(exc);
-    }
-    return rarg;
-}
-JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1find_1device(JNIEnv* env, jclass cls, jobject arg0, jobject arg1, jint arg2, jint arg3, jstring arg4) {
-    ::uvc_context* ptr0 = arg0 == NULL ? NULL : (::uvc_context*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
-    ::uvc_device* ptr1 = arg1 == NULL ? NULL : (::uvc_device*)jlong_to_ptr(env->GetLongField(arg1, JavaCPP_addressFID));
-    const char* ptr4 = JavaCPP_getStringBytes(env, arg4);
-    jint rarg = 0;
-    jthrowable exc = NULL;
-    try {
-        int rval = uvc_find_device(ptr0, (arg1 == NULL ? NULL : &ptr1), arg2, arg3, ptr4);
-        rarg = (jint)rval;
-    } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
-    }
-
-    if (arg1 != NULL) env->SetLongField(arg1, JavaCPP_addressFID, ptr_to_jlong(ptr1));
-    JavaCPP_releaseStringBytes(env, arg4, ptr4);
-    if (exc != NULL) {
-        env->Throw(exc);
-    }
-    return rarg;
-}
-JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_uvc_1ref_1device(JNIEnv* env, jclass cls, jobject arg0) {
-    ::uvc_device* ptr0 = arg0 == NULL ? NULL : (::uvc_device*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
-    jthrowable exc = NULL;
-    try {
-        uvc_ref_device(ptr0);
-    } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
-    }
-
-    if (exc != NULL) {
-        env->Throw(exc);
-    }
-}
-JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1open(JNIEnv* env, jclass cls, jobject arg0, jobject arg1) {
-    ::uvc_device* ptr0 = arg0 == NULL ? NULL : (::uvc_device*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
-    ::uvc_device_handle* ptr1 = arg1 == NULL ? NULL : (::uvc_device_handle*)jlong_to_ptr(env->GetLongField(arg1, JavaCPP_addressFID));
-    jint rarg = 0;
-    jthrowable exc = NULL;
-    try {
-        int rval = uvc_open(ptr0, (arg1 == NULL ? NULL : &ptr1));
-        rarg = (jint)rval;
-    } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
-    }
-
-    if (arg1 != NULL) env->SetLongField(arg1, JavaCPP_addressFID, ptr_to_jlong(ptr1));
-    if (exc != NULL) {
-        env->Throw(exc);
-    }
-    return rarg;
-}
-JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1device_1descriptor(JNIEnv* env, jclass cls, jobject arg0, jobject arg1) {
-    ::uvc_device* ptr0 = arg0 == NULL ? NULL : (::uvc_device*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
-    void** ptr1 = arg1 == NULL ? NULL : (void**)jlong_to_ptr(env->GetLongField(arg1, JavaCPP_addressFID));
-    jlong position1 = arg1 == NULL ? 0 : env->GetLongField(arg1, JavaCPP_positionFID);
+    jlong position1 = arg1 == NULL ? 0 : env->GetIntField(arg1, JavaCPP_bufferPositionFID);
     ptr1 += position1;
     jint rarg = 0;
     jthrowable exc = NULL;
     try {
-        int rval = uvc_get_device_descriptor(ptr0, (uvc_device_descriptor**)ptr1);
+        int rval = uvc_get_white_balance_temperature(ptr0, (uint16_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
-    if (exc != NULL) {
-        env->Throw(exc);
-    }
-    return rarg;
-}
-JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_uvc_1free_1device_1descriptor(JNIEnv* env, jclass cls, jobject arg0) {
-    ::uvc_device_descriptor* ptr0 = arg0 == NULL ? NULL : (::uvc_device_descriptor*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
-    jlong position0 = arg0 == NULL ? 0 : env->GetLongField(arg0, JavaCPP_positionFID);
-    ptr0 += position0;
-    jthrowable exc = NULL;
-    try {
-        uvc_free_device_descriptor(ptr0);
-    } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
-    }
-
-    if (exc != NULL) {
-        env->Throw(exc);
-    }
-}
-JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1format_1descs(JNIEnv* env, jclass cls, jobject arg0) {
-    ::uvc_device_handle* ptr0 = arg0 == NULL ? NULL : (::uvc_device_handle*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
-    jobject rarg = NULL;
-    const ::uvc_format_desc* rptr;
-    jthrowable exc = NULL;
-    try {
-        rptr = (const ::uvc_format_desc*)uvc_get_format_descs(ptr0);
-        if (rptr != NULL) {
-            rarg = JavaCPP_createPointer(env, 9);
-            if (rarg != NULL) {
-                env->SetLongField(rarg, JavaCPP_addressFID, ptr_to_jlong(rptr));
-            }
-        }
-    } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
-    }
-
-    if (exc != NULL) {
-        env->Throw(exc);
-    }
-    return rarg;
-}
-JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_uvc_1close(JNIEnv* env, jclass cls, jobject arg0) {
-    ::uvc_device_handle* ptr0 = arg0 == NULL ? NULL : (::uvc_device_handle*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
-    jthrowable exc = NULL;
-    try {
-        uvc_close(ptr0);
-    } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
-    }
-
-    if (exc != NULL) {
-        env->Throw(exc);
-    }
-}
-JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_uvc_1unref_1device(JNIEnv* env, jclass cls, jobject arg0) {
-    ::uvc_device* ptr0 = arg0 == NULL ? NULL : (::uvc_device*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
-    jthrowable exc = NULL;
-    try {
-        uvc_unref_device(ptr0);
-    } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
-    }
-
-    if (exc != NULL) {
-        env->Throw(exc);
-    }
-}
-JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_uvc_1exit(JNIEnv* env, jclass cls, jobject arg0) {
-    ::uvc_context* ptr0 = arg0 == NULL ? NULL : (::uvc_context*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
-    jthrowable exc = NULL;
-    try {
-        uvc_exit(ptr0);
-    } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
-    }
-
-    if (exc != NULL) {
-        env->Throw(exc);
-    }
-}
-JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1stream_1ctrl_1format_1size(JNIEnv* env, jclass cls, jobject arg0, jobject arg1, jint arg2, jint arg3, jint arg4, jint arg5) {
-    ::uvc_device_handle* ptr0 = arg0 == NULL ? NULL : (::uvc_device_handle*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
-    ::uvc_stream_ctrl_t* ptr1 = arg1 == NULL ? NULL : (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(arg1, JavaCPP_addressFID));
-    jlong position1 = arg1 == NULL ? 0 : env->GetLongField(arg1, JavaCPP_positionFID);
-    ptr1 += position1;
-    jint rarg = 0;
-    jthrowable exc = NULL;
-    try {
-        int rval = uvc_get_stream_ctrl_format_size(ptr0, ptr1, (uvc_frame_format)arg2, arg3, arg4, arg5);
-        rarg = (jint)rval;
-    } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
-    }
-
-    if (exc != NULL) {
-        env->Throw(exc);
-    }
-    return rarg;
-}
-JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1probe_1stream_1ctrl(JNIEnv* env, jclass cls, jobject arg0, jobject arg1) {
-    ::uvc_device_handle* ptr0 = arg0 == NULL ? NULL : (::uvc_device_handle*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
-    ::uvc_stream_ctrl_t* ptr1 = arg1 == NULL ? NULL : (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(arg1, JavaCPP_addressFID));
-    jlong position1 = arg1 == NULL ? 0 : env->GetLongField(arg1, JavaCPP_positionFID);
-    ptr1 += position1;
-    jint rarg = 0;
-    jthrowable exc = NULL;
-    try {
-        int rval = uvc_probe_stream_ctrl(ptr0, ptr1);
-        rarg = (jint)rval;
-    } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
-    }
-
+    if (arr1 != NULL) env->ReleaseShortArrayElements(arr1, (jshort*)(ptr1 - position1), 0);
     if (exc != NULL) {
         env->Throw(exc);
     }
@@ -3229,7 +3058,209 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1start_1streaming(JNIEnv* env, 
         int rval = uvc_start_streaming(ptr0, ptr1, (ptr2 == NULL ? NULL : ptr2->ptr), ptr3, arg4);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
+    }
+
+    if (exc != NULL) {
+        env->Throw(exc);
+    }
+    return rarg;
+}
+JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1init(JNIEnv* env, jclass cls, jobject arg0, jobject arg1) {
+    ::uvc_context* ptr0 = arg0 == NULL ? NULL : (::uvc_context*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
+    ::libusb_context* ptr1 = arg1 == NULL ? NULL : (::libusb_context*)jlong_to_ptr(env->GetLongField(arg1, JavaCPP_addressFID));
+    jint rarg = 0;
+    jthrowable exc = NULL;
+    try {
+        int rval = uvc_init((arg0 == NULL ? NULL : &ptr0), ptr1);
+        rarg = (jint)rval;
+    } catch (...) {
+        exc = JavaCPP_handleException(env, 8);
+    }
+
+    if (arg0 != NULL) env->SetLongField(arg0, JavaCPP_addressFID, ptr_to_jlong(ptr0));
+    if (exc != NULL) {
+        env->Throw(exc);
+    }
+    return rarg;
+}
+JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1find_1device(JNIEnv* env, jclass cls, jobject arg0, jobject arg1, jint arg2, jint arg3, jstring arg4) {
+    ::uvc_context* ptr0 = arg0 == NULL ? NULL : (::uvc_context*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
+    ::uvc_device* ptr1 = arg1 == NULL ? NULL : (::uvc_device*)jlong_to_ptr(env->GetLongField(arg1, JavaCPP_addressFID));
+    const char* ptr4 = JavaCPP_getStringBytes(env, arg4);
+    jint rarg = 0;
+    jthrowable exc = NULL;
+    try {
+        int rval = uvc_find_device(ptr0, (arg1 == NULL ? NULL : &ptr1), arg2, arg3, ptr4);
+        rarg = (jint)rval;
+    } catch (...) {
+        exc = JavaCPP_handleException(env, 8);
+    }
+
+    if (arg1 != NULL) env->SetLongField(arg1, JavaCPP_addressFID, ptr_to_jlong(ptr1));
+    JavaCPP_releaseStringBytes(env, arg4, ptr4);
+    if (exc != NULL) {
+        env->Throw(exc);
+    }
+    return rarg;
+}
+JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_uvc_1ref_1device(JNIEnv* env, jclass cls, jobject arg0) {
+    ::uvc_device* ptr0 = arg0 == NULL ? NULL : (::uvc_device*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
+    jthrowable exc = NULL;
+    try {
+        uvc_ref_device(ptr0);
+    } catch (...) {
+        exc = JavaCPP_handleException(env, 8);
+    }
+
+    if (exc != NULL) {
+        env->Throw(exc);
+    }
+}
+JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1open(JNIEnv* env, jclass cls, jobject arg0, jobject arg1) {
+    ::uvc_device* ptr0 = arg0 == NULL ? NULL : (::uvc_device*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
+    ::uvc_device_handle* ptr1 = arg1 == NULL ? NULL : (::uvc_device_handle*)jlong_to_ptr(env->GetLongField(arg1, JavaCPP_addressFID));
+    jint rarg = 0;
+    jthrowable exc = NULL;
+    try {
+        int rval = uvc_open(ptr0, (arg1 == NULL ? NULL : &ptr1));
+        rarg = (jint)rval;
+    } catch (...) {
+        exc = JavaCPP_handleException(env, 8);
+    }
+
+    if (arg1 != NULL) env->SetLongField(arg1, JavaCPP_addressFID, ptr_to_jlong(ptr1));
+    if (exc != NULL) {
+        env->Throw(exc);
+    }
+    return rarg;
+}
+JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1device_1descriptor(JNIEnv* env, jclass cls, jobject arg0, jobject arg1) {
+    ::uvc_device* ptr0 = arg0 == NULL ? NULL : (::uvc_device*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
+    void** ptr1 = arg1 == NULL ? NULL : (void**)jlong_to_ptr(env->GetLongField(arg1, JavaCPP_addressFID));
+    jlong position1 = arg1 == NULL ? 0 : env->GetLongField(arg1, JavaCPP_positionFID);
+    ptr1 += position1;
+    jint rarg = 0;
+    jthrowable exc = NULL;
+    try {
+        int rval = uvc_get_device_descriptor(ptr0, (uvc_device_descriptor**)ptr1);
+        rarg = (jint)rval;
+    } catch (...) {
+        exc = JavaCPP_handleException(env, 8);
+    }
+
+    if (exc != NULL) {
+        env->Throw(exc);
+    }
+    return rarg;
+}
+JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_uvc_1free_1device_1descriptor(JNIEnv* env, jclass cls, jobject arg0) {
+    ::uvc_device_descriptor* ptr0 = arg0 == NULL ? NULL : (::uvc_device_descriptor*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
+    jlong position0 = arg0 == NULL ? 0 : env->GetLongField(arg0, JavaCPP_positionFID);
+    ptr0 += position0;
+    jthrowable exc = NULL;
+    try {
+        uvc_free_device_descriptor(ptr0);
+    } catch (...) {
+        exc = JavaCPP_handleException(env, 8);
+    }
+
+    if (exc != NULL) {
+        env->Throw(exc);
+    }
+}
+JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1format_1descs(JNIEnv* env, jclass cls, jobject arg0) {
+    ::uvc_device_handle* ptr0 = arg0 == NULL ? NULL : (::uvc_device_handle*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
+    jobject rarg = NULL;
+    const ::uvc_format_desc* rptr;
+    jthrowable exc = NULL;
+    try {
+        rptr = (const ::uvc_format_desc*)uvc_get_format_descs(ptr0);
+        if (rptr != NULL) {
+            rarg = JavaCPP_createPointer(env, 13);
+            if (rarg != NULL) {
+                env->SetLongField(rarg, JavaCPP_addressFID, ptr_to_jlong(rptr));
+            }
+        }
+    } catch (...) {
+        exc = JavaCPP_handleException(env, 8);
+    }
+
+    if (exc != NULL) {
+        env->Throw(exc);
+    }
+    return rarg;
+}
+JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_uvc_1close(JNIEnv* env, jclass cls, jobject arg0) {
+    ::uvc_device_handle* ptr0 = arg0 == NULL ? NULL : (::uvc_device_handle*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
+    jthrowable exc = NULL;
+    try {
+        uvc_close(ptr0);
+    } catch (...) {
+        exc = JavaCPP_handleException(env, 8);
+    }
+
+    if (exc != NULL) {
+        env->Throw(exc);
+    }
+}
+JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_uvc_1unref_1device(JNIEnv* env, jclass cls, jobject arg0) {
+    ::uvc_device* ptr0 = arg0 == NULL ? NULL : (::uvc_device*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
+    jthrowable exc = NULL;
+    try {
+        uvc_unref_device(ptr0);
+    } catch (...) {
+        exc = JavaCPP_handleException(env, 8);
+    }
+
+    if (exc != NULL) {
+        env->Throw(exc);
+    }
+}
+JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_uvc_1exit(JNIEnv* env, jclass cls, jobject arg0) {
+    ::uvc_context* ptr0 = arg0 == NULL ? NULL : (::uvc_context*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
+    jthrowable exc = NULL;
+    try {
+        uvc_exit(ptr0);
+    } catch (...) {
+        exc = JavaCPP_handleException(env, 8);
+    }
+
+    if (exc != NULL) {
+        env->Throw(exc);
+    }
+}
+JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1stream_1ctrl_1format_1size(JNIEnv* env, jclass cls, jobject arg0, jobject arg1, jint arg2, jint arg3, jint arg4, jint arg5) {
+    ::uvc_device_handle* ptr0 = arg0 == NULL ? NULL : (::uvc_device_handle*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
+    ::uvc_stream_ctrl_t* ptr1 = arg1 == NULL ? NULL : (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(arg1, JavaCPP_addressFID));
+    jlong position1 = arg1 == NULL ? 0 : env->GetLongField(arg1, JavaCPP_positionFID);
+    ptr1 += position1;
+    jint rarg = 0;
+    jthrowable exc = NULL;
+    try {
+        int rval = uvc_get_stream_ctrl_format_size(ptr0, ptr1, (uvc_frame_format)arg2, arg3, arg4, arg5);
+        rarg = (jint)rval;
+    } catch (...) {
+        exc = JavaCPP_handleException(env, 8);
+    }
+
+    if (exc != NULL) {
+        env->Throw(exc);
+    }
+    return rarg;
+}
+JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1probe_1stream_1ctrl(JNIEnv* env, jclass cls, jobject arg0, jobject arg1) {
+    ::uvc_device_handle* ptr0 = arg0 == NULL ? NULL : (::uvc_device_handle*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
+    ::uvc_stream_ctrl_t* ptr1 = arg1 == NULL ? NULL : (::uvc_stream_ctrl_t*)jlong_to_ptr(env->GetLongField(arg1, JavaCPP_addressFID));
+    jlong position1 = arg1 == NULL ? 0 : env->GetLongField(arg1, JavaCPP_positionFID);
+    ptr1 += position1;
+    jint rarg = 0;
+    jthrowable exc = NULL;
+    try {
+        int rval = uvc_probe_stream_ctrl(ptr0, ptr1);
+        rarg = (jint)rval;
+    } catch (...) {
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -3243,7 +3274,7 @@ JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_uvc_1stop_1streaming(JNIEnv* env, j
     try {
         uvc_stop_streaming(ptr0);
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -3272,7 +3303,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1scanning_1mode(JNIEnv* en
         int rval = uvc_get_scanning_mode(ptr0, (uint8_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseByteArrayElements(arr1, (jbyte*)(ptr1 - position1), 0);
@@ -3289,7 +3320,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1scanning_1mode(JNIEnv* en
         int rval = uvc_set_scanning_mode(ptr0, (uint8_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -3319,7 +3350,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1ae_1mode(JNIEnv* env, jcl
         int rval = uvc_get_ae_mode(ptr0, (uint8_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseByteArrayElements(arr1, (jbyte*)(ptr1 - position1), 0);
@@ -3336,7 +3367,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1ae_1mode(JNIEnv* env, jcl
         int rval = uvc_set_ae_mode(ptr0, (uint8_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -3366,7 +3397,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1ae_1priority(JNIEnv* env,
         int rval = uvc_get_ae_priority(ptr0, (uint8_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseByteArrayElements(arr1, (jbyte*)(ptr1 - position1), 0);
@@ -3383,7 +3414,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1ae_1priority(JNIEnv* env,
         int rval = uvc_set_ae_priority(ptr0, (uint8_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -3413,7 +3444,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1exposure_1abs(JNIEnv* env
         int rval = uvc_get_exposure_abs(ptr0, (uint32_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseIntArrayElements(arr1, (jint*)(ptr1 - position1), 0);
@@ -3430,7 +3461,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1exposure_1abs(JNIEnv* env
         int rval = uvc_set_exposure_abs(ptr0, (uint32_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -3460,7 +3491,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1exposure_1rel(JNIEnv* env
         int rval = uvc_get_exposure_rel(ptr0, (int8_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseByteArrayElements(arr1, (jbyte*)(ptr1 - position1), 0);
@@ -3477,7 +3508,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1exposure_1rel(JNIEnv* env
         int rval = uvc_set_exposure_rel(ptr0, (int8_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -3507,7 +3538,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1focus_1abs(JNIEnv* env, j
         int rval = uvc_get_focus_abs(ptr0, (uint16_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseShortArrayElements(arr1, (jshort*)(ptr1 - position1), 0);
@@ -3524,7 +3555,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1focus_1abs(JNIEnv* env, j
         int rval = uvc_set_focus_abs(ptr0, (uint16_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -3568,7 +3599,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1focus_1rel(JNIEnv* env, j
         int rval = uvc_get_focus_rel(ptr0, (int8_t *)ptr1, (uint8_t *)ptr2, (uvc_req_code)arg3);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseByteArrayElements(arr1, (jbyte*)(ptr1 - position1), 0);
@@ -3586,7 +3617,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1focus_1rel(JNIEnv* env, j
         int rval = uvc_set_focus_rel(ptr0, (int8_t)arg1, (uint8_t)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -3616,7 +3647,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1focus_1simple_1range(JNIE
         int rval = uvc_get_focus_simple_range(ptr0, (uint8_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseByteArrayElements(arr1, (jbyte*)(ptr1 - position1), 0);
@@ -3633,7 +3664,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1focus_1simple_1range(JNIE
         int rval = uvc_set_focus_simple_range(ptr0, (uint8_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -3663,7 +3694,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1focus_1auto(JNIEnv* env, 
         int rval = uvc_get_focus_auto(ptr0, (uint8_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseByteArrayElements(arr1, (jbyte*)(ptr1 - position1), 0);
@@ -3680,7 +3711,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1focus_1auto(JNIEnv* env, 
         int rval = uvc_set_focus_auto(ptr0, (uint8_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -3710,7 +3741,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1iris_1abs(JNIEnv* env, jc
         int rval = uvc_get_iris_abs(ptr0, (uint16_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseShortArrayElements(arr1, (jshort*)(ptr1 - position1), 0);
@@ -3727,7 +3758,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1iris_1abs(JNIEnv* env, jc
         int rval = uvc_set_iris_abs(ptr0, (uint16_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -3757,7 +3788,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1iris_1rel(JNIEnv* env, jc
         int rval = uvc_get_iris_rel(ptr0, (uint8_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseByteArrayElements(arr1, (jbyte*)(ptr1 - position1), 0);
@@ -3774,7 +3805,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1iris_1rel(JNIEnv* env, jc
         int rval = uvc_set_iris_rel(ptr0, (uint8_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -3804,7 +3835,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1zoom_1abs(JNIEnv* env, jc
         int rval = uvc_get_zoom_abs(ptr0, (uint16_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseShortArrayElements(arr1, (jshort*)(ptr1 - position1), 0);
@@ -3821,7 +3852,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1zoom_1abs(JNIEnv* env, jc
         int rval = uvc_set_zoom_abs(ptr0, (uint16_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -3879,7 +3910,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1zoom_1rel(JNIEnv* env, jc
         int rval = uvc_get_zoom_rel(ptr0, (int8_t *)ptr1, (uint8_t *)ptr2, (uint8_t *)ptr3, (uvc_req_code)arg4);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseByteArrayElements(arr1, (jbyte*)(ptr1 - position1), 0);
@@ -3898,7 +3929,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1zoom_1rel(JNIEnv* env, jc
         int rval = uvc_set_zoom_rel(ptr0, (int8_t)arg1, (uint8_t)arg2, (uint8_t)arg3);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -3920,7 +3951,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1pantilt_1abs(JNIEnv* env,
         int rval = uvc_get_pantilt_abs(ptr0, ptr1, ptr2, (uvc_req_code)arg3);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -3936,7 +3967,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1pantilt_1abs(JNIEnv* env,
         int rval = uvc_set_pantilt_abs(ptr0, (int32_t)arg1, (int32_t)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -4008,7 +4039,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1pantilt_1rel(JNIEnv* env,
         int rval = uvc_get_pantilt_rel(ptr0, (int8_t *)ptr1, (uint8_t *)ptr2, (int8_t *)ptr3, (uint8_t *)ptr4, (uvc_req_code)arg5);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseByteArrayElements(arr1, (jbyte*)(ptr1 - position1), 0);
@@ -4028,7 +4059,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1pantilt_1rel(JNIEnv* env,
         int rval = uvc_set_pantilt_rel(ptr0, (int8_t)arg1, (uint8_t)arg2, (int8_t)arg3, (uint8_t)arg4);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -4047,7 +4078,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1roll_1abs(JNIEnv* env, jc
         int rval = uvc_get_roll_abs(ptr0, ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -4063,7 +4094,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1roll_1abs(JNIEnv* env, jc
         int rval = uvc_set_roll_abs(ptr0, (int16_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -4107,7 +4138,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1roll_1rel(JNIEnv* env, jc
         int rval = uvc_get_roll_rel(ptr0, (int8_t *)ptr1, (uint8_t *)ptr2, (uvc_req_code)arg3);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseByteArrayElements(arr1, (jbyte*)(ptr1 - position1), 0);
@@ -4125,7 +4156,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1roll_1rel(JNIEnv* env, jc
         int rval = uvc_set_roll_rel(ptr0, (int8_t)arg1, (uint8_t)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -4155,7 +4186,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1privacy(JNIEnv* env, jcla
         int rval = uvc_get_privacy(ptr0, (uint8_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseByteArrayElements(arr1, (jbyte*)(ptr1 - position1), 0);
@@ -4172,7 +4203,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1privacy(JNIEnv* env, jcla
         int rval = uvc_set_privacy(ptr0, (uint8_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -4272,7 +4303,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1digital_1window(JNIEnv* e
         int rval = uvc_get_digital_window(ptr0, (uint16_t *)ptr1, (uint16_t *)ptr2, (uint16_t *)ptr3, (uint16_t *)ptr4, (uint16_t *)ptr5, (uint16_t *)ptr6, (uvc_req_code)arg7);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseShortArrayElements(arr1, (jshort*)(ptr1 - position1), 0);
@@ -4294,7 +4325,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1digital_1window(JNIEnv* e
         int rval = uvc_set_digital_window(ptr0, (uint16_t)arg1, (uint16_t)arg2, (uint16_t)arg3, (uint16_t)arg4, (uint16_t)arg5, (uint16_t)arg6);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -4380,7 +4411,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1digital_1roi(JNIEnv* env,
         int rval = uvc_get_digital_roi(ptr0, (uint16_t *)ptr1, (uint16_t *)ptr2, (uint16_t *)ptr3, (uint16_t *)ptr4, (uint16_t *)ptr5, (uvc_req_code)arg6);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseShortArrayElements(arr1, (jshort*)(ptr1 - position1), 0);
@@ -4401,7 +4432,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1digital_1roi(JNIEnv* env,
         int rval = uvc_set_digital_roi(ptr0, (uint16_t)arg1, (uint16_t)arg2, (uint16_t)arg3, (uint16_t)arg4, (uint16_t)arg5);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -4431,7 +4462,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1backlight_1compensation(J
         int rval = uvc_get_backlight_compensation(ptr0, (uint16_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseShortArrayElements(arr1, (jshort*)(ptr1 - position1), 0);
@@ -4448,7 +4479,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1backlight_1compensation(J
         int rval = uvc_set_backlight_compensation(ptr0, (uint16_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -4467,7 +4498,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1brightness(JNIEnv* env, j
         int rval = uvc_get_brightness(ptr0, ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -4483,7 +4514,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1brightness(JNIEnv* env, j
         int rval = uvc_set_brightness(ptr0, (int16_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -4513,7 +4544,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1contrast(JNIEnv* env, jcl
         int rval = uvc_get_contrast(ptr0, (uint16_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseShortArrayElements(arr1, (jshort*)(ptr1 - position1), 0);
@@ -4530,7 +4561,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1contrast(JNIEnv* env, jcl
         int rval = uvc_set_contrast(ptr0, (uint16_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -4560,7 +4591,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1contrast_1auto(JNIEnv* en
         int rval = uvc_get_contrast_auto(ptr0, (uint8_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseByteArrayElements(arr1, (jbyte*)(ptr1 - position1), 0);
@@ -4577,7 +4608,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1contrast_1auto(JNIEnv* en
         int rval = uvc_set_contrast_auto(ptr0, (uint8_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -4607,7 +4638,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1gain(JNIEnv* env, jclass 
         int rval = uvc_get_gain(ptr0, (uint16_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseShortArrayElements(arr1, (jshort*)(ptr1 - position1), 0);
@@ -4624,7 +4655,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1gain(JNIEnv* env, jclass 
         int rval = uvc_set_gain(ptr0, (uint16_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -4654,7 +4685,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1power_1line_1frequency(JN
         int rval = uvc_get_power_line_frequency(ptr0, (uint8_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseByteArrayElements(arr1, (jbyte*)(ptr1 - position1), 0);
@@ -4671,7 +4702,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1power_1line_1frequency(JN
         int rval = uvc_set_power_line_frequency(ptr0, (uint8_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -4690,7 +4721,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1hue(JNIEnv* env, jclass c
         int rval = uvc_get_hue(ptr0, ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -4706,7 +4737,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1hue(JNIEnv* env, jclass c
         int rval = uvc_set_hue(ptr0, (int16_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -4736,7 +4767,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1hue_1auto(JNIEnv* env, jc
         int rval = uvc_get_hue_auto(ptr0, (uint8_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseByteArrayElements(arr1, (jbyte*)(ptr1 - position1), 0);
@@ -4753,7 +4784,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1hue_1auto(JNIEnv* env, jc
         int rval = uvc_set_hue_auto(ptr0, (uint8_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -4783,7 +4814,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1saturation(JNIEnv* env, j
         int rval = uvc_get_saturation(ptr0, (uint16_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseShortArrayElements(arr1, (jshort*)(ptr1 - position1), 0);
@@ -4800,7 +4831,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1saturation(JNIEnv* env, j
         int rval = uvc_set_saturation(ptr0, (uint16_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -4830,7 +4861,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1sharpness(JNIEnv* env, jc
         int rval = uvc_get_sharpness(ptr0, (uint16_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseShortArrayElements(arr1, (jshort*)(ptr1 - position1), 0);
@@ -4847,7 +4878,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1sharpness(JNIEnv* env, jc
         int rval = uvc_set_sharpness(ptr0, (uint16_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -4877,7 +4908,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1gamma(JNIEnv* env, jclass
         int rval = uvc_get_gamma(ptr0, (uint16_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseShortArrayElements(arr1, (jshort*)(ptr1 - position1), 0);
@@ -4894,40 +4925,9 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1gamma(JNIEnv* env, jclass
         int rval = uvc_set_gamma(ptr0, (uint16_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
-    if (exc != NULL) {
-        env->Throw(exc);
-    }
-    return rarg;
-}
-JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1white_1balance_1temperature(JNIEnv* env, jclass cls, jobject arg0, jobject arg1, jint arg2) {
-    ::uvc_device_handle* ptr0 = arg0 == NULL ? NULL : (::uvc_device_handle*)jlong_to_ptr(env->GetLongField(arg0, JavaCPP_addressFID));
-    short* ptr1 = arg1 == NULL ? NULL : (short*)env->GetDirectBufferAddress(arg1);
-    jshortArray arr1 = NULL;
-    jlong offset1 = 0;
-    if (arg1 != NULL && ptr1 == NULL) {
-        arr1 = (jshortArray)env->CallObjectMethod(arg1, JavaCPP_arrayMID);
-        offset1 = env->CallIntMethod(arg1, JavaCPP_arrayOffsetMID);
-        if (env->ExceptionOccurred() != NULL) {
-            return 0;
-        } else {
-            ptr1 = arr1 == NULL ? NULL : env->GetShortArrayElements(arr1, NULL) + offset1;
-        }
-    }
-    jlong position1 = arg1 == NULL ? 0 : env->GetIntField(arg1, JavaCPP_bufferPositionFID);
-    ptr1 += position1;
-    jint rarg = 0;
-    jthrowable exc = NULL;
-    try {
-        int rval = uvc_get_white_balance_temperature(ptr0, (uint16_t *)ptr1, (uvc_req_code)arg2);
-        rarg = (jint)rval;
-    } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
-    }
-
-    if (arr1 != NULL) env->ReleaseShortArrayElements(arr1, (jshort*)(ptr1 - position1), 0);
     if (exc != NULL) {
         env->Throw(exc);
     }
@@ -4941,7 +4941,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1white_1balance_1temperatu
         int rval = uvc_set_white_balance_temperature(ptr0, (uint16_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -4971,7 +4971,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1white_1balance_1temperatu
         int rval = uvc_get_white_balance_temperature_auto(ptr0, (uint8_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseByteArrayElements(arr1, (jbyte*)(ptr1 - position1), 0);
@@ -4988,7 +4988,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1white_1balance_1temperatu
         int rval = uvc_set_white_balance_temperature_auto(ptr0, (uint8_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -5032,7 +5032,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1white_1balance_1component
         int rval = uvc_get_white_balance_component(ptr0, (uint16_t *)ptr1, (uint16_t *)ptr2, (uvc_req_code)arg3);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseShortArrayElements(arr1, (jshort*)(ptr1 - position1), 0);
@@ -5050,7 +5050,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1white_1balance_1component
         int rval = uvc_set_white_balance_component(ptr0, (uint16_t)arg1, (uint16_t)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -5080,7 +5080,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1white_1balance_1component
         int rval = uvc_get_white_balance_component_auto(ptr0, (uint8_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseByteArrayElements(arr1, (jbyte*)(ptr1 - position1), 0);
@@ -5097,7 +5097,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1white_1balance_1component
         int rval = uvc_set_white_balance_component_auto(ptr0, (uint8_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -5127,7 +5127,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1digital_1multiplier(JNIEn
         int rval = uvc_get_digital_multiplier(ptr0, (uint16_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseShortArrayElements(arr1, (jshort*)(ptr1 - position1), 0);
@@ -5144,7 +5144,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1digital_1multiplier(JNIEn
         int rval = uvc_set_digital_multiplier(ptr0, (uint16_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -5174,7 +5174,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1digital_1multiplier_1limi
         int rval = uvc_get_digital_multiplier_limit(ptr0, (uint16_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseShortArrayElements(arr1, (jshort*)(ptr1 - position1), 0);
@@ -5191,7 +5191,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1digital_1multiplier_1limi
         int rval = uvc_set_digital_multiplier_limit(ptr0, (uint16_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -5221,7 +5221,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1analog_1video_1standard(J
         int rval = uvc_get_analog_video_standard(ptr0, (uint8_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseByteArrayElements(arr1, (jbyte*)(ptr1 - position1), 0);
@@ -5238,7 +5238,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1analog_1video_1standard(J
         int rval = uvc_set_analog_video_standard(ptr0, (uint8_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -5268,7 +5268,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1analog_1video_1lock_1stat
         int rval = uvc_get_analog_video_lock_status(ptr0, (uint8_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseByteArrayElements(arr1, (jbyte*)(ptr1 - position1), 0);
@@ -5285,7 +5285,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1analog_1video_1lock_1stat
         int rval = uvc_set_analog_video_lock_status(ptr0, (uint8_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -5315,7 +5315,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1input_1select(JNIEnv* env
         int rval = uvc_get_input_select(ptr0, (uint8_t *)ptr1, (uvc_req_code)arg2);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (arr1 != NULL) env->ReleaseByteArrayElements(arr1, (jbyte*)(ptr1 - position1), 0);
@@ -5332,7 +5332,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1set_1input_1select(JNIEnv* env
         int rval = uvc_set_input_select(ptr0, (uint8_t)arg1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -5348,7 +5348,7 @@ JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1bus_1number(JNIEnv* env,
         signed char rval = uvc_get_bus_number(ptr0);
         rarg = (jbyte)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -5364,7 +5364,7 @@ JNIEXPORT jbyte JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1device_1address(JNIEnv* 
         signed char rval = uvc_get_device_address(ptr0);
         rarg = (jbyte)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -5385,7 +5385,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1any2rgb(JNIEnv* env, jclass cl
         int rval = uvc_any2rgb(ptr0, ptr1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -5406,7 +5406,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1mjpeg2rgb(JNIEnv* env, jclass 
         int rval = uvc_mjpeg2rgb(ptr0, ptr1);
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -5421,13 +5421,13 @@ JNIEXPORT jobject JNICALL Java_io_vacco_uvc_Uvc_uvc_1allocate_1frame(JNIEnv* env
     try {
         rptr = uvc_allocate_frame((size_t)arg0);
         if (rptr != NULL) {
-            rarg = JavaCPP_createPointer(env, 7);
+            rarg = JavaCPP_createPointer(env, 10);
             if (rarg != NULL) {
                 env->SetLongField(rarg, JavaCPP_addressFID, ptr_to_jlong(rptr));
             }
         }
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -5443,7 +5443,7 @@ JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_uvc_1free_1frame(JNIEnv* env, jclas
     try {
         uvc_free_frame(ptr0);
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -5459,7 +5459,7 @@ JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_uvc_1print_1diag(JNIEnv* env, jclas
     try {
         uvc_print_diag(ptr0, (FILE*)ptr1);
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     if (exc != NULL) {
@@ -5477,7 +5477,7 @@ JNIEXPORT jint JNICALL Java_io_vacco_uvc_Uvc_uvc_1get_1device_1list(JNIEnv* env,
         int rval = uvc_get_device_list(ptr0, (uvc_device***)(arg1 == NULL ? NULL : &ptr1));
         rarg = (jint)rval;
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     ptr1 -= position1;
@@ -5495,7 +5495,7 @@ JNIEXPORT void JNICALL Java_io_vacco_uvc_Uvc_uvc_1free_1device_1list(JNIEnv* env
     try {
         uvc_free_device_list((uvc_device**)(arg0 == NULL ? NULL : &ptr0), (uint8_t)arg1);
     } catch (...) {
-        exc = JavaCPP_handleException(env, 10);
+        exc = JavaCPP_handleException(env, 8);
     }
 
     ptr0 -= position0;
