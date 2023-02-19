@@ -85,7 +85,7 @@ public class UvcTest {
         Uvc.uvc_set_focus_auto(devh, (byte) 0);
         Uvc.uvc_start_streaming(devh, sctrl, callback, (byte) 0);
 
-        // Thread.sleep(15000);
+        Thread.sleep(1000);
         while (windows.isActive()) {
           Thread.sleep(1000);
         }
