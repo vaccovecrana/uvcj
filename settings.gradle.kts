@@ -5,4 +5,4 @@ pluginManagement {
   }
 }
 
-include("uvc-jni-linux-x86_64", "uvc")
+include("uvc-jni-linux-x86_64")

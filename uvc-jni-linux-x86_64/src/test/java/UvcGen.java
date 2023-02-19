@@ -5,7 +5,7 @@ public class UvcGen {
     Builder.main(new String[] {
       "io.vacco.uvc.Uvc",
       "-nodelete",
-      "-d", "./uvc-jni-linux-x86_64/src/main/java/io/vacco/uvc"
+      "-d", "./uvc-jni-linux-x86_64/src/main/java/io/vacco/uvc/linux-x86_64"
     });
   }
 }
