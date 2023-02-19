@@ -239,55 +239,43 @@ public class Uvc implements InfoMapper {
 
     private native void allocateArray(int size);
 
-    /**
+    /*
      * Vendor ID
-     *
-     * @return
      */
     public native @Cast("uint16_t") short idVendor();
 
     public native UVCDeviceDescriptor idVendor(short idVendor);
 
-    /**
+    /*
      * Product ID
-     *
-     * @return
      */
     public native @Cast("uint16_t") short idProduct();
 
     public native UVCDeviceDescriptor idProduct(short idProduct);
 
-    /**
+    /*
      * UVC compliance level, e.g. 0x0100 (1.0), 0x0110
-     *
-     * @return
      */
     public native @Cast("uint16_t") short bcdUVC();
 
     public native UVCDeviceDescriptor bcdUVC(short bcdUVC);
 
-    /**
+    /*
      * Serial number (null if unavailable)
-     *
-     * @return
      */
     public native @Cast("char*") BytePointer serialNumber();
 
     public native UVCDeviceDescriptor serialNumber(BytePointer serialNumber);
 
-    /**
+    /*
      * Device-reported manufacturer name (or null)
-     *
-     * @return
      */
     public native @Cast("char*") BytePointer manufacturer();
 
     public native UVCDeviceDescriptor manufacturer(BytePointer manufacturer);
 
-    /**
+    /*
      * Device-reporter product name (or null)
-     *
-     * @return
      */
     public native @Cast("char*") BytePointer product();
 
@@ -296,8 +284,6 @@ public class Uvc implements InfoMapper {
 
   /**
    * Streaming mode, includes all information needed to select stream
-   *
-   * @ingroup streaming
    */
   @Name("uvc_stream_ctrl_t")
   public static class UVCStreamCtrl extends Pointer {
@@ -426,10 +412,8 @@ public class Uvc implements InfoMapper {
     public native TimeVal tv_usec(long tv_usec);
   }
 
-  /**
+  /*
    * An image frame received from the UVC device
-   *
-   * @ingroup streaming
    */
   @Name("uvc_frame")
   public static class UVCFrame extends Pointer {
@@ -454,56 +438,55 @@ public class Uvc implements InfoMapper {
 
     private native void allocateArray(int size);
 
-    /** Image data for this frame */
+    /* Image data for this frame */
     public native Pointer data();
 
     public native UVCFrame data(Pointer data);
 
-    /** Size of image data buffer */
+    /* Size of image data buffer */
     public native @Cast("size_t") int data_bytes();
 
     public native UVCFrame data_bytes(int data_bytes);
 
-    /** Width of image in pixels */
+    /* Width of image in pixels */
     public native @Cast("uint32_t") int width();
 
     public native UVCFrame width(int width);
 
-    /** Height of image in pixels */
+    /* Height of image in pixels */
     public native @Cast("uint32_t") int height();
 
     public native UVCFrame height(int height);
 
-    /** Pixel data format */
+    /* Pixel data format */
     public native @Cast("uvc_frame_format") int frame_format();
 
     public native UVCFrame frame_format(int frame_format);
 
-    /** Number of bytes per horizontal line (undefined for compressed format) */
+    /* Number of bytes per horizontal line (undefined for compressed format) */
     public native @Cast("size_t") int step();
 
     public native UVCFrame step(int step);
 
-    /** Frame number (may skip, but is strictly monotonically increasing) */
+    /* Frame number (may skip, but is strictly monotonically increasing) */
     public native @Cast("uint32_t") int sequence();
 
     public native UVCFrame sequence(int sequence);
 
-    /** Estimate of system time when the device started capturing the image */
+    /* Estimate of system time when the device started capturing the image */
     public native @ByVal TimeVal capture_time();
 
     public native UVCFrame capture_time(@ByVal TimeVal capture_time);
 
-    /**
+    /*
      * Handle on the device that produced the image.
-     *
-     * @warning You must not call any uvc_* functions during a callback.
+     * Warning: You must not call any uvc_* functions during a callback.
      */
     public native UVCDeviceHandle source();
 
     public native UVCFrame source(UVCDeviceHandle source);
 
-    /**
+    /*
      * Is the data buffer owned by the library? If 1, the data buffer can be arbitrarily reallocated by frame conversion functions. If
      * 0, the data buffer will not be reallocated or freed by the library. Set this field to zero if you are supplying the buffer.
      */
@@ -547,12 +530,12 @@ public class Uvc implements InfoMapper {
 
     public native UVCFrameDesc next(UVCFrameDesc next);
 
-    /** Type of frame, such as JPEG frame or uncompressed frame */
+    /* Type of frame, such as JPEG frame or uncompressed frame */
     public native @Cast("uvc_vs_desc_subtype") int bDescriptorSubtype();
 
     public native UVCFrameDesc bDescriptorSubtype(int bDescriptorSubtype);
 
-    /** Index of the frame within the list of specs available for this format */
+    /* Index of the frame within the list of specs available for this format */
     public native @Cast("uint8_t") byte bFrameIndex();
 
     public native UVCFrameDesc bFrameIndex(byte bFrameIndex);
@@ -561,62 +544,62 @@ public class Uvc implements InfoMapper {
 
     public native UVCFrameDesc bmCapabilities(byte bmCapabilities);
 
-    /** Image width */
+    /* Image width */
     public native @Cast("uint16_t") short wWidth();
 
     public native UVCFrameDesc wWidth(short wWidth);
 
-    /** Image height */
+    /* Image height */
     public native @Cast("uint16_t") short wHeight();
 
     public native UVCFrameDesc wHeight(short wHeight);
 
-    /** Bitrate of corresponding stream at minimal frame rate */
+    /* Bitrate of corresponding stream at minimal frame rate */
     public native @Cast("uint32_t") int dwMinBitRate();
 
     public native UVCFrameDesc dwMinBitRate(int dwMinBitRate);
 
-    /** Bitrate of corresponding stream at maximal frame rate */
+    /* Bitrate of corresponding stream at maximal frame rate */
     public native @Cast("uint32_t") int dwMaxBitRate();
 
     public native UVCFrameDesc dwMaxBitRate(int dwMaxBitRate);
 
-    /** Maximum number of bytes for a video frame */
+    /* Maximum number of bytes for a video frame */
     public native @Cast("uint32_t") int dwMaxVideoFrameBufferSize();
 
     public native UVCFrameDesc dwMaxVideoFrameBufferSize(int dwMaxVideoFrameBufferSize);
 
-    /** Default frame interval (in 100ns units) */
+    /* Default frame interval (in 100ns units) */
     public native @Cast("uint32_t") int dwDefaultFrameInterval();
 
     public native UVCFrameDesc dwDefaultFrameInterval(int dwDefaultFrameInterval);
 
-    /** Minimum frame interval for continuous mode (100ns units) */
+    /* Minimum frame interval for continuous mode (100ns units) */
     public native @Cast("uint32_t") int dwMinFrameInterval();
 
     public native UVCFrameDesc dwMinFrameInterval(int dwMinFrameInterval);
 
-    /** Maximum frame interval for continuous mode (100ns units) */
+    /* Maximum frame interval for continuous mode (100ns units) */
     public native @Cast("uint32_t") int dwMaxFrameInterval();
 
     public native UVCFrameDesc dwMaxFrameInterval(int dwMaxFrameInterval);
 
-    /** Granularity of frame interval range for continuous mode (100ns) */
+    /* Granularity of frame interval range for continuous mode (100ns) */
     public native @Cast("uint32_t") int dwFrameIntervalStep();
 
     public native UVCFrameDesc dwFrameIntervalStep(int dwFrameIntervalStep);
 
-    /** Frame intervals */
+    /* Frame intervals */
     public native @Cast("uint8_t") byte bFrameIntervalType();
 
     public native UVCFrameDesc bFrameIntervalType(byte bFrameIntervalType);
 
-    /** number of bytes per line */
+    /* number of bytes per line */
     public native @Cast("uint32_t") int dwBytesPerLine();
 
     public native UVCFrameDesc dwBytesPerLine(int dwBytesPerLine);
 
-    /** Available frame rates, zero-terminated (in 100ns units) */
+    /* Available frame rates, zero-terminated (in 100ns units) */
     public native @Cast("uint32_t *") IntBuffer intervals();
 
     public native UVCFrameDesc intervals(IntBuffer intervals);
@@ -662,12 +645,12 @@ public class Uvc implements InfoMapper {
 
     public native UVCFormatDesc next(UVCFormatDesc next);
 
-    /** Type of image stream, such as JPEG or uncompressed. */
+    /* Type of image stream, such as JPEG or uncompressed. */
     public native @Cast("uvc_vs_desc_subtype") int bDescriptorSubtype();
 
     public native UVCFormatDesc bDescriptorSubtype(int bDescriptorSubtype);
 
-    /** Identifier of this format within the VS interface's format list */
+    /* Identifier of this format within the VS interface's format list */
     public native @Cast("uint8_t") byte bFormatIndex();
 
     public native UVCFormatDesc bFormatIndex(byte bFormatIndex);
@@ -676,7 +659,7 @@ public class Uvc implements InfoMapper {
 
     public native UVCFormatDesc bNumFrameDescriptors(byte bNumFrameDescriptors);
 
-    /** Format specifier Union */
+    /* Format specifier Union */
     public native @Cast("uint8_t") byte guidFormat(int pos);
 
     public native UVCFormatDesc guidFormat(int pos, byte guidFormat);
@@ -691,18 +674,18 @@ public class Uvc implements InfoMapper {
     @MemberGetter
     public native @Cast("uint8_t *") BytePointer fourccFormat();
 
-    /** Format-specific data Union */
-    /** BPP for uncompressed stream */
+    /* Format-specific data Union */
+    /* BPP for uncompressed stream */
     public native @Cast("uint8_t") byte bBitsPerPixel();
 
     public native UVCFormatDesc bBitsPerPixel(byte bBitsPerPixel);
 
-    /** Flags for JPEG stream */
+    /* Flags for JPEG stream */
     public native @Cast("uint8_t") byte bmFlags();
 
     public native UVCFormatDesc bmFlags(byte bmFlags);
 
-    /** Default {uvc_frame_desc} to choose given this format */
+    /* Default {uvc_frame_desc} to choose given this format */
     public native @Cast("uint8_t") byte bDefaultFrameIndex();
 
     public native UVCFormatDesc bDefaultFrameIndex(byte bDefaultFrameIndex);
@@ -727,16 +710,14 @@ public class Uvc implements InfoMapper {
 
     public native UVCFormatDesc bVariableSize(byte bVariableSize);
 
-    /** Available frame specifications for this format */
+    /* Available frame specifications for this format */
     public native UVCFrameDesc frame_descs();
 
     public native UVCFormatDesc frame_descs(UVCFrameDesc frame_descs);
   }
 
-  /**
+  /*
    * A callback function to handle incoming assembled UVC frames
-   *
-   * @ingroup streaming
    */
   // typedef void(uvc_frame_callback_t)(struct uvc_frame *frame, void *user_ptr);
   public static abstract class UVCFrameCallback extends FunctionPointer {

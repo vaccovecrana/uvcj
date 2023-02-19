@@ -13,7 +13,6 @@ import java.awt.image.WritableRaster;
 import java.nio.ByteBuffer;
 
 /**
- *
  * @author CyberCastle, Based in CanvasFrame.java, written by Samuel Audet (https://github.com/bytedeco/javacv)
  */
 public class Utils {
