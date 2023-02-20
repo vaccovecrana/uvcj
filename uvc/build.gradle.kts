@@ -3,8 +3,10 @@ configure<io.vacco.oss.gitflow.GsPluginProfileExtension> {
   sharedLibrary(true, false)
 }
 
-val api by configurations
-
 dependencies {
-  api(project(":uvc-jni-linux-x86_64"))
+  /**
+   * TODO this is a platform specific provided dependency
+   * This is fine for now, but change it when other platforms are needed.
+   */
+  implementation(project(":uvc-jni-linux-x86_64"))
 }
