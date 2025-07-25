@@ -2,9 +2,15 @@
 
 JNI wrapper for `libuvc`.
 
-Requires `libuvc` available at `LD_LIBRARY_PATH`. 
+Available in [Maven Central](https://mvnrepository.com/artifact/io.vacco.uvcj/uvc).
+
+Supports Linux/MacOS on x64 devices.
 
 Includes Java classes to control a camera, and extract `BufferedImage` frames from it.
+
+See [examples](./src/test/java/io/vacco/uvc/UvcTest.java) for usage.
+
+MacOS support is secondary, since their permissions model makes testing very painful.
 
 ## Notes
 

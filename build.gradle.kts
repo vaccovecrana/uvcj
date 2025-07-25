@@ -1,15 +1,16 @@
-plugins { id("io.vacco.oss.gitflow") version "0.9.8" apply(false) }
+plugins { id("io.vacco.oss.gitflow") version "1.8.2" }
 
-subprojects {
-  apply(plugin = "io.vacco.oss.gitflow")
-  group = "io.vacco.uvcj"
-  version = "0.0.6" // in sync with supported libuvc version
+group = "io.vacco.uvcj"
+version = "0.0.7"
 
-  configure<io.vacco.oss.gitflow.GsPluginProfileExtension> {
-    addClasspathHell()
-  }
-
-  configure<io.vacco.cphell.ChPluginExtension> {
-    resourceExclusions.add("module-info.class")
-  }
+configure<io.vacco.oss.gitflow.GsPluginProfileExtension> {
+  addJ8Spec()
+  sharedLibrary(true, false)
 }
+
+tasks.named<ProcessResources>("processResources") {
+  from("src/main/c/libuvc_jni.so") { into("io/vacco/uvc") }
+  from("src/main/c/libuvc_jni.dylib") { into("io/vacco/uvc") }
+}
+
+println("${System.getProperty("os.name")}-${System.getProperty("os.arch")}")
